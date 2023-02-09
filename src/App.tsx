@@ -1,13 +1,12 @@
 import './App.css';
+import React from "react";
+
 
 function App() {
 
-    const price = 4
+    const price = 5
 
-
-
-
-    const grow = (p) => {
+    const grow = (p:any) => {
         return (p - 2) * 180
     }
 
