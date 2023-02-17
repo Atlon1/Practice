@@ -4,14 +4,19 @@ import React, {useState} from "react";
 
 function App() {
 
-    const [colorText ,  setColorText] = useState('black')
+
+    const arr1 = "8 3 -5 42 -1 0 0 -9 4 7 4 -4"
 
 
+    const result = (a) => {
+       a = a.split(' ')
+        return `${Math.max(...a)} ${Math.min(...a)}`
+    }
+
+    console.log(result(arr1))
 
     return (
         <>
-        <div style={{color: colorText}}>To jest jakis kolor</div>
-            <button onClick={() => setColorText(colorText === "black" ? "pink" : "black")}>Zmiana koloru</button>
         </>
     );
 }
