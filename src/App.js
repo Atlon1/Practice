@@ -5,18 +5,21 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr1 = [1, 2, 3, 12]
+    const arr1 = [[7, 9, 8, 6, 2], [6, 3, 5, 4, 3], [5, 8, 7, 4, 5]]
 
 
-    const result = (a) => {
+    const result = (arr) => {
 
-        let array = []
+        let total = 0;
 
-        for (let i = a[0]; i <= a.slice(-1); i++) {
-            array.push(i)
+
+
+        for (let i = 0; i < arr.length; i++){
+            total += Math.min(...arr[i])
         }
 
-        return array
+        return total;
+
 
     }
 
