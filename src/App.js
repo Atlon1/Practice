@@ -5,17 +5,16 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr1 = "abcd"
+    const arr1 = 'abcde'
+    const arr2 = 'cde'
 
 
-    const result = (arr) => {
-        const res = arr.split('').map(c=> c+c).join('')
-        console.log(res)
-
+    const result = (a,b) => {
+        return a.endsWith(b)
 
     }
 
-    console.log(result(arr1))
+    console.log(result(arr1,arr2))
 
     return (
         <>
