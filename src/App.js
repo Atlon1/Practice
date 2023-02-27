@@ -5,15 +5,15 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr1 = [-3, -2, -1]
+    const arr1 = "apple ban"
     // const arr2 = 3
 
 
     const result = (a) => {
-        const res = a.sort((a,b) => {
-            return a - b
-        }).reverse()
-        return (res[0] - res[1])+ (res[1] - res[2])
+        const res = a.split(' ')
+        return res.map((a) => {
+            return a +" "+a.length
+        })
     }
 
     console.log(result(arr1))
