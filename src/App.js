@@ -5,18 +5,24 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr1 = "apple ban"
-    // const arr2 = 3
+    const arr1 = 1
+    const arr2 = 2
+    const oper = "add"
 
 
-    const result = (a) => {
-        const res = a.split(' ')
-        return res.map((a) => {
-            return a +" "+a.length
-        })
+    const result = (a,b,operator) => {
+        if (operator === "add"){
+            return a + b
+        } else if (operator === "subtract"){
+            return a - b
+        } else if (operator === "multiply"){
+            return a * b
+        } else if (operator === "divide"){
+            return a / b
+        }
     }
 
-    console.log(result(arr1))
+    console.log(result(arr1,arr2,oper))
 
     return (
         <>
