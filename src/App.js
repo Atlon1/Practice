@@ -5,19 +5,15 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr1 = 3
-    // const arr2 = "garlic naan"
+    const arr1 = [-3, -2, -1]
+    // const arr2 = 3
 
 
     const result = (a) => {
-        let array = []
-        for (let i = 0 ; i <= a; i++){
-            array[i]= []
-            for (let j = 0; j < a; j++){
-                array[i][j] = (i + 1) * (j + 1)
-            }
-        }
-        return array
+        const res = a.sort((a,b) => {
+            return a - b
+        }).reverse()
+        return (res[0] - res[1])+ (res[1] - res[2])
     }
 
     console.log(result(arr1))
