@@ -5,24 +5,17 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr1 = 1
-    const arr2 = 2
-    const oper = "add"
+    const arr1 = "f"
 
 
-    const result = (a,b,operator) => {
-        if (operator === "add"){
-            return a + b
-        } else if (operator === "subtract"){
-            return a - b
-        } else if (operator === "multiply"){
-            return a * b
-        } else if (operator === "divide"){
-            return a / b
-        }
+    const result = (a) => {
+        const alphabet = [" ", "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+        let res = alphabet.indexOf(a)
+        return `Position of alphabet: ${res}`
     }
 
-    console.log(result(arr1,arr2,oper))
+   console.log(result(arr1))
+
 
     return (
         <>
