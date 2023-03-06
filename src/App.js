@@ -5,8 +5,8 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr1 = [4, 12, 3, 1, 5]
-    // const arr2 = [1,2,3,4,5,10,12]
+    const arr1 = [1, 10, 100]
+    // const arr2 = 5
     // const arr3 = 4
     // const arr4 = 8
     // const arr5 = true
@@ -14,11 +14,13 @@ function App() {
 
 
     const result = (a) => {
-        let newArr = []
-        for (let i=0; i < a.length -1; i++){
-            newArr.push(a[i]*a[i +1])
+       let arr = a.sort((a,b)=> a-b)
+        if (arr[arr.length-1] === arr[arr.length-2]){
+            return arr[arr.length-2]
+        } else {
+           return  arr[arr.length-1]
         }
-        return Math.max(...newArr)
+
     }
 
 
