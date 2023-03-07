@@ -1,31 +1,24 @@
 import './App.css';
-import React, {useState} from "react";
+import React from "react";
 
 
 function App() {
 
 
-    const arr1 = [1, 10, 100]
-    // const arr2 = 5
-    // const arr3 = 4
+    const arr1 = ["John", "Smith"]
+    const arr2 = 'Phoenix'
+    const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
 
 
-
-    const result = (a) => {
-       let arr = a.sort((a,b)=> a-b)
-        if (arr[arr.length-1] === arr[arr.length-2]){
-            return arr[arr.length-2]
-        } else {
-           return  arr[arr.length-1]
-        }
-
+    const result = (name, city, state) => {
+        const res = name.reduce((elem, inde) => elem + " " + inde)
+        return `Hello, ${res}! Welcome to ${city}, ${state}!`
     }
 
 
-   console.log(result(arr1))
-
+    console.log(result(arr1, arr2, arr3))
 
 
     return (
