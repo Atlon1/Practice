@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "233"
+    const arr1 = [10,20,30]
     // const arr2 = 'Phoenix'
     // const arr3 = 'Arizona'
     // const arr4 = 8
@@ -13,13 +13,16 @@ function App() {
 
 
     const result = (a) => {
-       return  a.toString()
-            .split("")
-            .reverse()
-            .map( (a, i) => a * Math.pow(10, i))
-            .filter(a => a > 0)
-            .reverse()
-            .join(" + ");
+       let odd = [], even = []
+        for (let i = 0; i <= a.length; i++){
+            if ( a[i] % 2 === 0){
+                even.push(a[i])
+            } else {
+                odd.push(a[i])
+            }
+        }
+        return [odd, even]
+
     }
 
 
