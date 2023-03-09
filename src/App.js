@@ -5,28 +5,30 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [10,20,30]
-    // const arr2 = 'Phoenix'
+    const arr1 = 135
+    const arr2 = 1.92
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
 
 
-    const result = (a) => {
-       let odd = [], even = []
-        for (let i = 0; i <= a.length; i++){
-            if ( a[i] % 2 === 0){
-                even.push(a[i])
-            } else {
-                odd.push(a[i])
-            }
+    const result = (a,b) => {
+       const res = (a/Math.pow(2, b)).toFixed(2)
+
+        if (res <= 18.5){
+            return  "Underweight"
+        } else if ( res <= 25){
+            return "Normal"
+        } else if ( res <= 30){
+            return "Overweight"
+        }else {
+            return  "Obese"
         }
-        return [odd, even]
 
     }
 
 
-    console.log(result(arr1))
+    console.log(result(arr1,arr2))
 
 
     return (
