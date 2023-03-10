@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 'riley'
+    const arr1 = "9♦"
     // const arr2 = 1.92
     // const arr3 = 'Arizona'
     // const arr4 = 8
@@ -13,11 +13,11 @@ function App() {
 
 
     const result = (a) => {
-        const res = a.split("")
-        const res2 = res[0].toUpperCase()
-        console.log(res2)
-       return `Hello ${a}`
+        const res = a.split('').reverse()
 
+        return res[0] === '♣' ? 'clubs' :
+            res[0]  === '♦' ? 'diamonds' :
+                res[0]  === '♥' ? 'hearts' : 'spades'
     }
 
 
