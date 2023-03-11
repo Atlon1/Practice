@@ -5,30 +5,27 @@ import React from "react";
 function App() {
 
 
-    const arr1 = ["a", "a", "c", "b"]
-    const arr2 = ["a", "a", "b",  ""]
+    const arr1 = 26.95
+    const arr2 = "Good"
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
 
 
     const result = (a,b) => {
-        let result = 0
-        for (let i = 0; i < a.length; i++){
-            if (a[i] === b[i]){
-                result += 4
-            } else if (b[i] === ""){
-                result += 0
-            } else {
-                result -= 1
-            }
+        if (b.toLowerCase() === "excellent"){
+            return Math.ceil(a * 0.20)
+        } else if (b.toLowerCase() === "great"){
+            return Math.ceil(a * 0.15)
+        } else if (b.toLowerCase() === "good"){
+            return Math.ceil(a * 0.10)
+        } else if (b.toLowerCase() === "poor"){
+            return Math.ceil(a * 0.05)
+        } else if (b.toLowerCase() === "terrible"){
+            return Math.ceil(a)
+        }else {
+            return "Rating not recognised"
         }
-        if (result > 0){
-            return result
-        } else {
-            return  0
-        }
-
     }
 
 
