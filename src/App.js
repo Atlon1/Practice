@@ -5,31 +5,34 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 26.95
-    const arr2 = "Good"
+    const arr1 = 6
+    // const arr2 = "Good"
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
 
 
-    const result = (a,b) => {
-        if (b.toLowerCase() === "excellent"){
-            return Math.ceil(a * 0.20)
-        } else if (b.toLowerCase() === "great"){
-            return Math.ceil(a * 0.15)
-        } else if (b.toLowerCase() === "good"){
-            return Math.ceil(a * 0.10)
-        } else if (b.toLowerCase() === "poor"){
-            return Math.ceil(a * 0.05)
-        } else if (b.toLowerCase() === "terrible"){
-            return Math.ceil(a)
-        }else {
-            return "Rating not recognised"
+    const result = (a) => {
+        if (a > 0){
+            let array = ''
+            let count = 0
+            for (let i = 0; i <= a; i ++){
+                count += i
+            }
+            for (let i = 0; i < a; i ++){
+                array +=`${i}+`
+            }
+
+            return `${array}${a} = ${count}`
+        } else if ( a < 0){
+            return `${a}<0`
+        } else {
+            return 0
         }
     }
 
 
-    console.log(result(arr1,arr2))
+    console.log(result(arr1))
 
 
     return (
