@@ -5,15 +5,18 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "My \"me3ssy\" d8ata issues2! Will1 th4ey ever, e3ver be3 so0lved?"
-    // const arr2 = "Good"
-    // const arr3 = 'Arizona'
+    const arr1 = ["1", "2", "3"]
+    // const arr2 = 850
+    // const arr3 = 70
     // const arr4 = 8
     // const arr5 = true
 
 
     const result = (a) => {
-return a.replace(/[123456789]/g, "")
+
+    return a.map(Number)
+
+
     }
 
 
