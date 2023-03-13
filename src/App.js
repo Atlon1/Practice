@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = ["1", "2", "3"]
+    const arr1 = "camelCase"
     // const arr2 = 850
     // const arr3 = 70
     // const arr4 = 8
@@ -14,7 +14,14 @@ function App() {
 
     const result = (a) => {
 
-    return a.map(Number)
+    a = a.split("").map((ele)=> {
+        if (ele === ele.toUpperCase()){
+            ele = ' ' + ele
+        }
+        return ele
+    })
+
+        return a.join('')
 
 
     }
