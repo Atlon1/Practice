@@ -5,34 +5,15 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 2010
-    const arr2 = 1990
+    const arr1 = [-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26]
+    const arr2 = 2
     // const arr3 = 70
     // const arr4 = 8
     // const arr5 = true
 
 
     const result = (a, b) => {
-        if (b > a) {
-            let res = b - a
-            if (res > 2) {
-                return `You are ${res} years old.`
-            } else {
-                return `You are ${res} year old.`
-            }
-
-        } else if (a > b) {
-            let res = a - b
-            if (res > 9) {
-                return `You will be born in ${res} years.`
-            } else {
-                return `You will be born in ${res} year.`
-            }
-
-        } else {
-            return "You were born this very year!"
-        }
-
+        return a.filter((e) => e % 2 === 0).slice(-b)
     }
 
 
