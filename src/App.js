@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "alligator"
+    const arr1 = [15, 7, 3, -8]
     // const arr2 = "z"
     // const arr3 = 1.5
     // const arr4 = 8
@@ -13,10 +13,12 @@ function App() {
 
 
     const result = (a) => {
-        if (a.toLowerCase() === "alligator"){
-            return "small"
+        if (a.sort((a,b)=> a + b) === a){
+            return 'yes, ascending'
+        } else if (a.sort((a,b)=> a - b) === a){
+            return 'yes, descending'
         } else {
-            return "wide"
+            return "no"
         }
     }
 
