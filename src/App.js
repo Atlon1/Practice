@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [9, 3, '7', '3']
+    const arr1 = "alligator"
     // const arr2 = "z"
     // const arr3 = 1.5
     // const arr4 = 8
@@ -13,22 +13,11 @@ function App() {
 
 
     const result = (a) => {
-        let array = []
-        const res = a.filter((n) => typeof n === "number")
-
-        if (res.length > 0) {
-           return res.reduce((e, f) => e + f)
+        if (a.toLowerCase() === "alligator"){
+            return "small"
+        } else {
+            return "wide"
         }
-        const res2 = a.filter((n) => typeof n === "string").map((e) => Number(e))
-
-        if (res2.length > 0) {
-           return res2.reduce((e, f) => e + f)
-        }
-
-
-
-        console.log(array)
-
     }
 
 
