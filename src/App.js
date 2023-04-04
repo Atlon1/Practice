@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 35231
+    const arr1 = [5,4,2,3]
     // const arr2 = 2
     // const arr3 = 1.5
     // const arr4 = 8
@@ -13,7 +13,7 @@ function App() {
 
 
     const result = (a) => {
-        return String(a).split('').map(Number).reverse()
+       return  a.sort((a, b) => a - b).reduce((pre, val) => pre + val * a.pop(), 0)
     }
 
 
