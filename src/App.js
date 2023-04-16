@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 56789
+    const arr1 = 'man i need a taxi up to ubud'
     // const arr2 = 3
     // const arr3 = 1.5
     // const arr4 = 8
@@ -13,14 +13,9 @@ function App() {
 
 
     const result = (a) => {
-        let res = a.toString()
-        let arr = [res]
-        for (let i = 0; i < res.length; i++){
-            res = res.slice(0,i)+res.slice(i+1)+res[i]
-            arr.push(res.split().join())
-        }
+        const res = a.split(' ').sort((a,b)=> a.charCodeAt(a.length -1) - b.charCodeAt(b.length -1))
 
-        return Math.max.apply(null, arr)
+        return res
     }
 
 
