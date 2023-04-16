@@ -5,20 +5,21 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [-5,-1,-6,-18]
-    const arr2 = 3
+    const arr1 = 1
+    // const arr2 = 3
     // const arr3 = 1.5
     // const arr4 = 8
     // const arr5 = true
 
 
-    const result = (a,b) => {
-        const res = a.sort((a,b)=>a - b)
-        return res[b-1]
+    const result = (a) => {
+       let len = a.toString().length
+        let num = (a*a).toString().slice(-len)
+        return a == num ? 'Automorphic' : 'Not!!'
     }
 
 
-    console.log(result(arr1,arr2))
+    console.log(result(arr1))
 
 
     return (
