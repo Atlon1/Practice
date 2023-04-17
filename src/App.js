@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 'man i need a taxi up to ubud'
+    const arr1 = 2789
     // const arr2 = 3
     // const arr3 = 1.5
     // const arr4 = 8
@@ -13,9 +13,16 @@ function App() {
 
 
     const result = (a) => {
-        const res = a.split(' ').sort((a,b)=> a.charCodeAt(a.length -1) - b.charCodeAt(b.length -1))
+        const res = a.toString().split('').join('')
+        const res2 = a.toString().split('').sort((a,b)=> a - b).join('')
 
-        return res
+
+        if (res === res2){
+            return true
+        } else {
+            return false
+        }
+
     }
 
 
