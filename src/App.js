@@ -5,24 +5,26 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 500
-    const arr2 = 15
-    const arr3 = 0.9
+    const arr1 = "Reverse this string, please!"
+    // const arr2 = 15
+    // const arr3 = 0.9
     // const arr4 = 8
     // const arr5 = true
 
 
-    const result = (a,b,c) => {
-        const systemA = b * 3
-        const systemB = a + b * c + (b * c) * c + (b * c * c) * c
+    const result = (a) => {
 
 
-        return systemA, systemB
+        const res = a.split(' ')
 
+        for(let i = 1; i < res.length; i += 2){
+            res[i] = res[i].split('').reverse().join('')
+        }
+        return res.join(' ').trim()
     }
 
 
-    console.log(result(arr1,arr2,arr3))
+    console.log(result(arr1))
 
 
     return (
