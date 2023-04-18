@@ -5,28 +5,24 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 2789
-    // const arr2 = 3
-    // const arr3 = 1.5
+    const arr1 = 500
+    const arr2 = 15
+    const arr3 = 0.9
     // const arr4 = 8
     // const arr5 = true
 
 
-    const result = (a) => {
-        const res = a.toString().split('').join('')
-        const res2 = a.toString().split('').sort((a,b)=> a - b).join('')
+    const result = (a,b,c) => {
+        const systemA = b * 3
+        const systemB = a + b * c + (b * c) * c + (b * c * c) * c
 
 
-        if (res === res2){
-            return true
-        } else {
-            return false
-        }
+        return systemA, systemB
 
     }
 
 
-    console.log(result(arr1))
+    console.log(result(arr1,arr2,arr3))
 
 
     return (
