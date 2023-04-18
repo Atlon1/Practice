@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "Reverse this string, please!"
+    const arr1 = 10
     // const arr2 = 15
     // const arr3 = 0.9
     // const arr4 = 8
@@ -13,14 +13,17 @@ function App() {
 
 
     const result = (a) => {
+        let res = ''
 
+        for (let i = 0; i < a; i++){
+            res += "+".repeat(a)
+            res += "\n"
+            for (let j = i; j < i; j++){
+                res += "+".repeat(j)
+            }
 
-        const res = a.split(' ')
-
-        for(let i = 1; i < res.length; i += 2){
-            res[i] = res[i].split('').reverse().join('')
         }
-        return res.join(' ').trim()
+        return res
     }
 
 
