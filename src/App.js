@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [3, 4, 4, 3, 6, 3]
+    const arr1 = "abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"
     // const arr2 = 2
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,7 +13,7 @@ function App() {
 
 
     const result = (a) => {
-        return a.filter((val,i) => a.lastIndexOf(val) == i)
+        return a.replace(/[^a-z]/g,"").length
     }
 
 
