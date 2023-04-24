@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 1000000
+    const arr1 = [3,4,5]
     // const arr2 = 'string2'
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,17 +13,9 @@ function App() {
 
 
     const result = (a) => {
-        let paper = 0.0001;
-        let folds = 0;
-        if (a <= 0) {
-            return null;
-        } else {
-            while ( a > paper ) {
-                paper *= 2;
-                folds += 1;
-            }
-        }
-        return folds;
+        const [d,f,g] = a.sort((a,b) => a -b)
+
+        return d**2 + f ** 2 === g ** 2
     }
 
 
