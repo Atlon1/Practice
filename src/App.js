@@ -5,21 +5,19 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [3,4,5]
-    // const arr2 = 'string2'
+    const arr1 = 222
+    const arr2 = '222'
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
-    const result = (a) => {
-        const [d,f,g] = a.sort((a,b) => a -b)
-
-        return d**2 + f ** 2 === g ** 2
+    const result = (a,b) => {
+        return a === parseInt(b)
     }
 
 
-    console.log(result(arr1))
+    console.log(result(arr1,arr2))
 
 
     return (
