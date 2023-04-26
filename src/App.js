@@ -13,22 +13,8 @@ function App() {
 
 
     const result = (a) => {
-        const res = a.map((elem, id) => {
-            return elem + (id + 1)
-        })
-
-        for(let i = 0; i < res.length; i++){
-            if (res[i] <= 9){
-                res[i] -= 0
-            }
-            else if (res[i] <= 19){
-                res[i] -= 10
-            } else if (res[i] >= 20){
-                res[i] -= 20
-            }
-        }
-
-        return res
+        let arr = Array.from(new Set(a))
+        return parseInt(arr.sort().join(''))
     }
 
 
