@@ -5,25 +5,29 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "B"
-    const arr2 = '\C'
+    const arr1 = "Hello World"
+    // const arr2 = '\C'
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
-    const result = (a, b) => {
-
-        if (a.toUpperCase() === a.toLowerCase() || b.toLowerCase() === b.toUpperCase()){
-            return -1
-        } else if (a === a.toLowerCase() && b === b.toLowerCase() || a === a.toUpperCase() && b === b.toUpperCase()){
-            return 1
-        } else return 0
-
+    const result = (a) => {
+            if (a.toLowerCase() === a){
+                return a.toUpperCase()
+            } else if (a.toUpperCase() === a){
+                return a.toLowerCase()
+            } else return  a.split('').map((elem) => {
+                if (elem.toLowerCase() === elem){
+                    return elem.toUpperCase()
+                } else if (elem.toUpperCase() === elem){
+                    return elem.toLowerCase()
+                }
+            }).join('')
     }
 
 
-    console.log(result(arr1, arr2))
+    console.log(result(arr1))
 
 
     return (
