@@ -5,29 +5,25 @@ import React from "react";
 function App() {
 
 
-    const arr1 = ["Mickey Mouse","Barbie doll","Hello Kitty","Hello Kitty","Hello Kitty","Snow white"]
-    // const arr2 = '222'
+    const arr1 = "B"
+    const arr2 = '\C'
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
-    const result = (a) => {
-       let bag = []
+    const result = (a, b) => {
 
-        for (let i = 0;i < a.length;i++){
-            if (a[i] ===  "Barbie doll" || a[i] === "Hello Kitty" ){
-                bag.push(a[i])
-            } else continue
-            if (bag.length ===3){
-                break
-            }
-        }
-        return bag
+        if (a.toUpperCase() === a.toLowerCase() || b.toLowerCase() === b.toUpperCase()){
+            return -1
+        } else if (a === a.toLowerCase() && b === b.toLowerCase() || a === a.toUpperCase() && b === b.toUpperCase()){
+            return 1
+        } else return 0
+
     }
 
 
-    console.log(result(arr1))
+    console.log(result(arr1, arr2))
 
 
     return (
