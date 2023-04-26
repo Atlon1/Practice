@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "Hello World"
+    const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 9, 8]
     // const arr2 = '\C'
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,17 +13,22 @@ function App() {
 
 
     const result = (a) => {
-            if (a.toLowerCase() === a){
-                return a.toUpperCase()
-            } else if (a.toUpperCase() === a){
-                return a.toLowerCase()
-            } else return  a.split('').map((elem) => {
-                if (elem.toLowerCase() === elem){
-                    return elem.toUpperCase()
-                } else if (elem.toUpperCase() === elem){
-                    return elem.toLowerCase()
-                }
-            }).join('')
+        const res = a.map((elem, id) => {
+            return elem + (id + 1)
+        })
+
+        for(let i = 0; i < res.length; i++){
+            if (res[i] <= 9){
+                res[i] -= 0
+            }
+            else if (res[i] <= 19){
+                res[i] -= 10
+            } else if (res[i] >= 20){
+                res[i] -= 20
+            }
+        }
+
+        return res
     }
 
 
