@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 9, 8]
+    const arr1 = ["apple","banana","rottenKiwi","melone","orange"]
     // const arr2 = '\C'
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,8 +13,9 @@ function App() {
 
 
     const result = (a) => {
-        let arr = Array.from(new Set(a))
-        return parseInt(arr.sort().join(''))
+       const res = a.map((elem) => elem.replace('rotten', '').toLowerCase())
+
+        return res
     }
 
 
