@@ -5,29 +5,25 @@ import React from "react";
 function App() {
 
 
-    const arr1 ='aaabcccbaaa'
-    // const arr2 = 1.23
+    const arr1 = "abcdef"
+    const arr2 = [1, 2, 5]
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
-    const result = (a) => {
-       const res = a.split('')
-        const arr = []
+    const result = (a, b) => {
+        const res = a.split('')
 
-        for (let i = 0; i < res.length; i++){
-            if (res[i] === 'a'){
-                arr.push('b')
-            } else if (res[i]=== "b"){
-                arr.push('a')
-            } else arr.push(res[i])
+        for (let i = 0; i < b.length; i++) {
+            if(res[b[i]]){
+                res[b[i]] = res[b[i]].toUpperCase()
+            }
         }
-
-        return arr.join('')
+        return res.join('')
     }
 
-    console.log(result(arr1))
+    console.log(result(arr1, arr2))
 
 
     return (
