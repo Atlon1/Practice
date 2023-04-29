@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 1.01
+    const arr1 = "Mexico"
     // const arr2 = [1, 2, 5]
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,7 +13,12 @@ function App() {
 
 
     const result = (a) => {
-        return a >= 1.01 ? "F" : a >= 0.9 ? "A" : a >= 0.8 ? "B" : a >= 0.7 ? "C" : a >= 0.6 ? "D" :  "F"
+        if (a.length <= 2 || a.length === 0) {
+            return [`${a}`]
+        } else {
+            return [`${a}`, `${a.slice(0,2)}`]
+        }
+
     }
 
     console.log(result(arr1))
