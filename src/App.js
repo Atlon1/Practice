@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "Mexico"
+    const arr1 = [65,60,75,55,60,63,64,45]
     // const arr2 = [1, 2, 5]
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,13 +13,11 @@ function App() {
 
 
     const result = (a) => {
-        if (a.length <= 2 || a.length === 0) {
-            return [`${a}`]
-        } else {
-            return [`${a}`, `${a.slice(0,2)}`]
-        }
+       return  Math.floor((Math.sqrt(a.map((elem) => elem * elem).reduce((a,b) => a + b))) / 2)
 
     }
+
+    // const predictAge = (...ages) => Math.hypot(...ages) / 2 | 0;
 
     console.log(result(arr1))
 
