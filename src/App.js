@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "attitude"
+    const arr1 = 'ghdfj32'
     // const arr2 = [1, 2, 5]
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,9 +13,7 @@ function App() {
 
 
     const result = (string) => {
-        return string.split('').reduce((acc, char) => {
-            return acc + char.charCodeAt() - 96;
-        }, 0);
+ return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d]{6,}$/.test(string)
 
     }
 
