@@ -5,22 +5,18 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "abcdef"
-    const arr2 = [1, 2, 5]
+    const arr1 = 12
+    const arr2 = 5
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
     const result = (a, b) => {
-        const res = a.split('')
+        const res = (b + 1)
+        const res2 = a / res
 
-        for (let i = 0; i < b.length; i++) {
-            if(res[b[i]]){
-                res[b[i]] = res[b[i]].toUpperCase()
-            }
-        }
-        return res.join('')
+        return `${res2}x^${res}`
     }
 
     console.log(result(arr1, arr2))
