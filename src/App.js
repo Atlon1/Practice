@@ -6,8 +6,8 @@ function App() {
 
 
 
-    const arr1 = 12
-    const arr2 = 5
+    const arr1 = 4
+    const arr2 = 2
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
@@ -15,11 +15,11 @@ function App() {
 
 
     const result = (a, b) => {
-        const res = (b + 1)
-        const res2 = a / res
-
-        return `${res2}x^${res}`
-
+       let res = 1
+        for (let i = 1; i <= b; i++){
+            res = res * a
+        }
+            return res
     }
 
     console.log(result(arr1, arr2))
