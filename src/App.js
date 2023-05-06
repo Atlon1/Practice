@@ -17,15 +17,15 @@ function App() {
     const result = (a,b) => {
         const arr =[]
 
-        for (let i = 0; i >= a; i++){
-            const res = b * i
+        for (let i = 1; i <= a; i++){
+           let res = b * i
             arr.push(res)
         }
         return arr
     }
 
 
-    console.log(arr1,arr2)
+    console.log(result(arr1,arr2))
 
     return (
         <>
