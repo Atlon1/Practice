@@ -6,8 +6,8 @@ function App() {
 
 
 
-    const arr1 = "My name is John"
-    const arr2 = "-"
+    const arr1 = 3
+    const arr2 = 5.0
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
@@ -15,13 +15,17 @@ function App() {
 
 
     const result = (a,b) => {
-        const res = a.split(' ').map((elem) => {
-            return elem.split('').join(b)}).join(' ')
-        return res
+        const arr =[]
+
+        for (let i = 0; i >= a; i++){
+            const res = b * i
+            arr.push(res)
+        }
+        return arr
     }
 
-    console.log(result(arr1,arr2))
 
+    console.log(arr1,arr2)
 
     return (
         <>
