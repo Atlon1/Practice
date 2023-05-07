@@ -6,8 +6,8 @@ function App() {
 
 
 
-    const arr1 = 3
-    const arr2 = 5.0
+    const arr1 = 0
+    const arr2 = 3
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
@@ -15,13 +15,19 @@ function App() {
 
 
     const result = (a,b) => {
-        const arr =[]
+        if (a <= 0 || b <= 0){
+            return []
+        } else {
 
-        for (let i = 1; i <= a; i++){
-           let res = b * i
-            arr.push(res)
+            const arr =[a]
+
+            for (let i = 0; b-1 > i; i++){
+                let res = arr[arr.length - 1]*arr[arr.length - 1]
+                arr.push(res)
+            }
+            return arr
         }
-        return arr
+
     }
 
 
