@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "test"
+    const arr1 = 'C.....m'
     // const arr2 = 3
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,10 +13,12 @@ function App() {
 
 
     const result = (a) => {
-        let alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        let rot13 = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+        const res = a.split('')
+        if (res.filter((elem)=> elem === ".").length > 3){
+            return "Escaped!"
+        } else
 
-        return a.replace(/[a-z]/gi, c => rot13[alpha.indexOf(c)])
+        return "Caught!"
     }
 
 
