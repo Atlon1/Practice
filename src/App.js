@@ -14,6 +14,8 @@ function App() {
 
     const result = (a,b) => {
         return  a.sort((a,b)=> a - b).reverse().slice(0, b).reduce((a,b) => a *b)
+
+
     }
 
 
