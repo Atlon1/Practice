@@ -5,21 +5,32 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [10,2,3,8,1,10,4]
-    const arr2 = 5
+    const arr1 = ["O", "O", "X", "X", "X", "X"]
+    // const arr2 = 5
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
-    const result = (a,b) => {
-        return  a.sort((a,b)=> a - b).reverse().slice(0, b).reduce((a,b) => a *b)
+    const result = (a) => {
+        let res = 0
+        let count = -1
 
+        for (let i = 0; i <= a.length; i++) {
+            if (a[i] === "O") {
+                res += i
+                count += 1
+            } else if (res >= 0) {
+                break
+            }
+        }
+
+        return !count > 0 ? "None available!" : res
 
     }
 
 
-    console.log(result(arr1,arr2))
+    console.log(result(arr1))
 
     return (
         <>
