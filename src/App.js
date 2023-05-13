@@ -13,7 +13,7 @@ function App() {
 
 
     const result = (a) => {
-        const res = a.filter((elem)=> elem % 2 === 1).sort((a,b) => a - b)
+        const res = a.filter((elem)=> elem % 2 !== 0).sort((a,b) => a - b)
         let j = 0
         let arr = []
         for (let i = 0; i < a.length; i++){
