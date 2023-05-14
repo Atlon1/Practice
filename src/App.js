@@ -13,22 +13,15 @@ function App() {
 
 
     const result = (a) => {
-       const res = a.match(/[A-Z]/g).map((elem) => elem.toLowerCase())
-        const res2 = a.match(/[a-z]/g).map((elem) => elem.toUpperCase())
-        const word = a.split(' ')
-
-        let contactWord = []
-
-
-        for (let i = 0; i < word.length; i++){
-            contactWord += res[i]
-            for (let j = 0; j < word[i].length -1; j++){
-                contactWord += res2[j]
-
-            }
-        }
-
-        return contactWord
+        return a
+            .split(' ')
+            .reverse()
+            .join(' ')
+            .split('')
+            .map(v => v == v.toUpperCase() ?
+                v.toLowerCase() :
+                v.toUpperCase())
+            .join('');
     }
 
 
