@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [ -49, -47, 32, 34, -39, -28, -35, -17, -15, 30, -22, -5, -3, 13, 31, -50, 34, 41, 45, -36, 38, 45, 45 ]
+    const arr1 = "Example Input"
     // const arr2 = 5
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,18 +13,22 @@ function App() {
 
 
     const result = (a) => {
-        const res = a.filter((elem)=> elem % 2 !== 0).sort((a,b) => a - b)
-        let j = 0
-        let arr = []
-        for (let i = 0; i < a.length; i++){
-            if (a[i] % 2 === 1){
-                arr.push(res[j])
-                j++
-            } else {
-                arr.push(a[i])
+       const res = a.match(/[A-Z]/g).map((elem) => elem.toLowerCase())
+        const res2 = a.match(/[a-z]/g).map((elem) => elem.toUpperCase())
+        const word = a.split(' ')
+
+        let contactWord = []
+
+
+        for (let i = 0; i < word.length; i++){
+            contactWord += res[i]
+            for (let j = 0; j < word[i].length -1; j++){
+                contactWord += res2[j]
+
             }
         }
-        return arr
+
+        return contactWord
     }
 
 
