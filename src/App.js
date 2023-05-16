@@ -12,16 +12,14 @@ function App() {
     // const arr5 = true
 
 
-    const result = (a) => {
-        return a
-            .split(' ')
-            .reverse()
-            .join(' ')
-            .split('')
-            .map(v => v == v.toUpperCase() ?
-                v.toLowerCase() :
-                v.toUpperCase())
-            .join('');
+    const result = (a,b) => {
+        if (a >= b) return "INVALID";
+
+        var sum = 0;
+        for (var i = a; i < b; i+=a) {
+            sum += i;
+        }
+        return sum;
     }
 
 
