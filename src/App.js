@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [-40, -20, 320, 350, 500]
+    const arr1 = "LEET"
     const arr2 = 'value'
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,12 +13,15 @@ function App() {
 
 
     const result = (a) => {
-       const animal = {name:"dog",legs:4,color:"white"}
-        return `This ${animal.color} ${animal.name} has ${animal.legs} legs.`
+
+        let alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let leetSeak = "@8(D3F6#!JK1MN0PQR$7UVWXY2"
+
+        return a.replace(/[A-Z]/gi, c => leetSeak[alpha.indexOf(c)])
     }
 
 
-    console.log(result(arr1, arr2))
+    console.log(result(arr1))
 
     return (
         <>
