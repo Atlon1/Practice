@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 2
+    const arr1 = "How can mirrors be real if our eyes aren't real"
     // const arr2 = [1, 3]
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,12 +13,10 @@ function App() {
 
 
     const result = (a) => {
-
-        if (a === 1){
-            return "It's Odious!"
-        } else if (a % 2 === 0){
-            return "It's Odious!"
-        } else return "It's Evil!"
+        return a.split(' ').map((elem) => {
+           elem.split('')
+           return  elem[0].toUpperCase() + elem.slice(1)
+        }).join(' ')
     }
 
 
