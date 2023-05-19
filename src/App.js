@@ -12,14 +12,9 @@ function App() {
     // const arr5 = true
 
 
-    const result = (a, b) => {
-        if (b === "value") {
-            a.sort((a, b) => a - b)
-            return a[0]
-        } else if (b === "index") {
-            a.sort((a, b) => a - b)
-            return a.indexOf(1)
-        }
+    const result = (a) => {
+       const animal = {name:"dog",legs:4,color:"white"}
+        return `This ${animal.color} ${animal.name} has ${animal.legs} legs.`
     }
 
 
