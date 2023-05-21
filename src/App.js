@@ -14,10 +14,7 @@ function App() {
 
     const result = (a) => {
 
-        let alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        let leetSeak = "@8(D3F6#!JK1MN0PQR$7UVWXY2"
-
-        return a.replace(/[A-Z]/gi, c => leetSeak[alpha.indexOf(c)])
+        return a.replace(/79(?=7)/g, '7');
     }
 
 
