@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "45236"
+    const arr1 = 'this is my string'
     const arr2 = 'value'
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,7 +13,7 @@ function App() {
 
 
     const result = (a) => {
-      return a.split('').map((e) => e.repeat(+e)).join('')
+     return a.replace(/[aeiou]/ig, (m,i) => i + 1)
     }
 
 
