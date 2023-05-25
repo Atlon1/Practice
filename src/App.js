@@ -5,16 +5,18 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "ababc"
-    const arr2 = 'c'
+    const arr1 = "AD"
+    const arr2 = 'BC'
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
     const result = (a,b) => {
-        a = a.toLowerCase()
-        return a.includes(b) ? a.lastIndexOf(b) - a.indexOf(b) : -1
+        if (/^\D+$/gi.test(a) && /^\D+$/gi.test(b)){
+            return a.split('').map(n => n.toUpperCase().charCodeAt()).reduce((a,b)=> a+b) ===
+                b.split('').map(n=>n.toUpperCase().charCodeAt()).reduce((a,b) => a+b)
+        }
     }
 
 
