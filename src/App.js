@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"
+    const arr1 = ['24', '12', '23', '22', '4', '26', '9', '8']
     // const arr2 = 'BC'
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,7 +13,9 @@ function App() {
 
 
     const result = (a) => {
-        let res = a.replace(/\D/gi,' ').split(' ').map(val => Number(val)).reduce((a,b) => a + b)
+        const alpha = ' zyxwvutsrqponmlkjihgfedcba!? '
+        let res = a.map(val => alpha[val]).join('')
+
 
         return res
     }
