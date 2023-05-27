@@ -5,19 +5,16 @@ import React from "react";
 function App() {
 
 
-    const arr1 = ['24', '12', '23', '22', '4', '26', '9', '8']
-    // const arr2 = 'BC'
+    const arr1 = 122201
+    // const arr2 = 2
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
     const result = (a) => {
-        const alpha = ' zyxwvutsrqponmlkjihgfedcba!? '
-        let res = a.map(val => alpha[val]).join('')
+        return a.toString(a%2 ? 16 : 2)
 
-
-        return res
     }
 
 
