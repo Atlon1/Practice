@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 122201
+    const arr1 = "<h2>Hello World</h2>"
     // const arr2 = 2
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,7 +13,10 @@ function App() {
 
 
     const result = (a) => {
-        return a.toString(a%2 ? 16 : 2)
+        return a.replace(/&/g, "&amp;")
+            .replace(/"/g, "&quot;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
 
     }
 
