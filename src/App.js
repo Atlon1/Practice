@@ -5,19 +5,24 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 75
-    const arr2 = 25
+    const arr1 = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]
+    // const arr2 = 25
     // const arr3 = 0
     // const arr4 = 1200
     // const arr5 = true
 
 
-    const result = (a,b) => {
-            return Math.round(b/(1-a/100)* 100)/ 100
+    const result = (a) => {
+           let res = 0
+        for(let i = 0; i < a.length; i++){
+            if (a[i] === "needle"){
+                return `found the needle at position ${res}`
+            } else { res ++}
+        }
     }
 
 
-    console.log(result(arr1,arr2))
+    console.log(result(arr1))
 
     return (
         <>
