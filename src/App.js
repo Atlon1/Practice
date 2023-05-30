@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]
+    const arr1 = "Boat Rudder Mast Boat Hull Water Fire Boat Deck Hull Fire Propeller Deck Fire Deck Boat Mast"
     // const arr2 = 25
     // const arr3 = 0
     // const arr4 = 1200
@@ -13,12 +13,7 @@ function App() {
 
 
     const result = (a) => {
-           let res = 0
-        for(let i = 0; i < a.length; i++){
-            if (a[i] === "needle"){
-                return `found the needle at position ${res}`
-            } else { res ++}
-        }
+        return a.replace(/Fire/gi, "~~")
     }
 
 
