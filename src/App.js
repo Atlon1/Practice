@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 2.14
+    const arr1 = " glasses of wine and 2 shot"
     // const arr2 = 25
     // const arr3 = 0
     // const arr4 = 1200
@@ -13,15 +13,8 @@ function App() {
 
 
     const result = (a) => {
-        if (Number.isInteger(a) && a > 0){
-            let res = 0
-            for (let i = 0; i <= a; i++){
-                res += i
-            } return res
-        } else {
-            return false
-        }
-
+        let res = a.replace(/\D/g, ' ').split(' ').map(val => Number(val)).reduce((a,b) => a+b)
+        return res <= 1 ? `${res} glass of water` : `${res} glasses of water`
 
     }
 
