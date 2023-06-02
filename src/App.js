@@ -5,43 +5,27 @@ import React, {useState} from "react";
 function App() {
 
 
-    const [arr1, setArr1] = useState([1, 2, 3, 4, 5, 6])
-    // const arr2 = 25
+    const arr2 = 1
     // const arr3 = 0
     // const arr4 = 1200
     // const arr5 = true
 
 
     const result = (a) => {
+        const res = a.toString().split('')
+
+        return res.length <= 1 ? `Value is 0000${a}` :
+            res.length <= 2 ? `Value is 000${a}` :
+                res.length <= 3 ? `Value is 00${a}` :
+                res.length <= 4 ? `Value is 0${a}` : `Value is ${a}`
+
     }
 
-
-    const [tableData, setTableData] = useState([1,2,3,4,5]);
-    const [date, setDate] = useState("")
-
-    const handleDelete = (index) => {
-        const update = [...tableData]
-        update.splice(index, 1)
-        setTableData(update)
-    };
-
-    const refreshDate = () => {
-       setTableData([...tableData, date])
-    }
-
+    console.log(result(arr2))
 
     return (
         <div>
-            <input onChange={(e) => setDate(e.target.value)} type='text'/>
-            <button onClick={() => refreshDate()}>Dodaj treść</button>
-            <ul>
-                {tableData.map((value, index) => (
-                    <li key={index}>
-                        {value}
-                        <button onClick={() => handleDelete(index)}>Usuń</button>
-                    </li>
-                ))}
-            </ul>
+
         </div>
     );
 }
