@@ -5,17 +5,17 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = [1,2,3,4,5,6,7,68,69,70,15,17]
-    // const arr3 = -5
+    const arr2 = ["a", "b", "c", "d", "c", "e", "f", "g", "h", "z"]
+    const arr3 = 2
     // const arr4 = 0
     // const arr5 = true
 
 
-    const result = (a) => {
-       return a.filter((a) => a.toString().includes('7'))
+    const result = (a,b) => {
+      return `name: ${a[b-1]}`
     }
 
-    console.log(result(arr2))
+    console.log(result(arr2,arr3))
 
     return (
         <div>
