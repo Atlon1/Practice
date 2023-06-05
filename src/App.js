@@ -5,25 +5,17 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = -6
-    const arr3 = -5
+    const arr2 = [1,2,3,4,5,6,7,68,69,70,15,17]
+    // const arr3 = -5
     // const arr4 = 0
     // const arr5 = true
 
 
-    const result = (strarr, k) => {
-        if (k <= 0 || k > strarr.length) {
-            return "";
-        }
-
-        return strarr
-            .map((value, index) => (
-                strarr.slice(index, index+k).join('')
-            ))
-            .reduce((longest, current) => current.length > longest.length ? current : longest)
+    const result = (a) => {
+       return a.filter((a) => a.toString().includes('7'))
     }
 
-    console.log(result(arr2,arr3))
+    console.log(result(arr2))
 
     return (
         <div>
