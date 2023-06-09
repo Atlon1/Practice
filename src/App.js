@@ -5,26 +5,26 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = [82,91,72,76,76,100,85]
-    // const arr3 = 2
-    // const arr4 = 0
+    const arr2 = []
+    const arr3 = [3,11,13,8,6,3,18]
+    const arr4 = 103
     // const arr5 = true
 
 
-    const result = (a) => {
-      const odd = a.filter((elem, index, array) => {
-          return  (array.indexOf(elem) === index) % 2 === 0
-      }).sort((a,b) => a - b)
-
-        const even = a.filter((elem, index, array) => {
-          return  (array.indexOf(elem) === index) % 2 !== 0
-      }).sort((a,b) => a - b).reverse()
-
-
-        return [...odd, ...even]
+    const result = (a, b, c) => {
+        return a.length === 0 && b.length === 0 ? c :
+            a.length > 0 && b === 0 ? c - (a.reduce((a, b) => {
+                return a + b
+            })) :
+                b.length > 0 && a === 0 ? c - (b.reduce((a, b) => {
+                    return a + b
+                })) :
+                    c - ([...a, ...b].reduce((a, b) => {
+                        return a + b
+                    }))
     }
 
-    console.log(result(arr2))
+    console.log(result(arr2, arr3, arr4))
 
     return (
         <div>
