@@ -5,21 +5,23 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = "beeeEBb"
-    const arr3 = 2
-    const arr4 = 0
+    const arr2 = ['a', 'b', 'c']
+    const arr3 = [1, 2, 3,4]
+    // const arr4 = 0
     // const arr5 = true
 
 
-    const result = (a) => {
-     return a.toLowerCase()
-         .split('')
-         .sort()
-         .map((elem,index, array)=>{ return (index===0 || elem !== array[index-1] ? elem.toUpperCase(): elem)})
-         .join('')
+    const result = (a, b) => {
+
+        const obj = {}
+        for (let i = 0; i < a.length; i++) {
+            obj[a[i]] = i < b.length ? b[i] : null
+        }
+
+        return obj
     }
 
-    console.log(result(arr2))
+    console.log(result(arr2, arr3))
 
     return (
         <div>
