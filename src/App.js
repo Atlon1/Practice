@@ -5,14 +5,15 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = "This Is A Test"
-    // const arr3 = [1, 2, 3,4]
+    const arr2 = [1,2]
+    // const arr3 = "AND"
     // const arr4 = 0
     // const arr5 = true
 
 
     const result = (a) => {
-        return a.split(' ').map(elem => elem[0]).join('')
+       const sort = a.sort((a,b) => a - b)
+        return [sort[0], sort[sort.length- 1]]
     }
 
     console.log(result(arr2))
