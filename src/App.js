@@ -5,17 +5,25 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = "1plus2plus3plus4"
-    // const arr3 = "AND"
+    const arr2 = 125
+    const arr3 = 132
     // const arr4 = 0
     // const arr5 = true
 
 
-    const result = (a) => {
-      return eval(a.replace(/plus/gi, "+").replace(/minus/gi, "-").toString())
+    const result = (a,b) => {
+      let res = Array(10).fill(0)
+
+        for ( let i = a; i <= b;i++){
+            for (let j of (i + "")){
+                res[j]++
+            }
+        }
+
+        return res
     }
 
-    console.log(result(arr2))
+    console.log(result(arr2,arr3))
 
     return (
         <div>
