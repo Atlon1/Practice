@@ -5,15 +5,14 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = [1,2]
+    const arr2 = "1plus2plus3plus4"
     // const arr3 = "AND"
     // const arr4 = 0
     // const arr5 = true
 
 
     const result = (a) => {
-       const sort = a.sort((a,b) => a - b)
-        return [sort[0], sort[sort.length- 1]]
+      return eval(a.replace(/plus/gi, "+").replace(/minus/gi, "-").toString())
     }
 
     console.log(result(arr2))
