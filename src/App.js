@@ -5,18 +5,41 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = [1, 4, 1, 2, 11, 2, 3, 1]
-    // const arr3 = 6
-    // const arr4 = 3
+    const arr2 = "!!???!????"
+    const arr3 = "??!!?!!!!!!!"
+    // const arr4 = 110
     // const arr5 = true
 
 
-    const result = (a) => {
-       const res = a.filter((elem) => elem === 1).length
-        return a.filter((elem) => elem === res).length
+    const result = (a,b) => {
+        const split1 = a.split('')
+        const split2 = b.split('')
+
+        let res = 0
+        let res2 = 0
+
+        for(let i = 0; i < a.length; i++){
+            if (split1[i] === "!"){
+                res += 2
+            } else {
+                res += 3
+            }
+        }
+
+        for(let i = 0; i < b.length; i++){
+            if (split2[i] === "!"){
+                res2 += 2
+            } else {
+                res2 += 3
+            }
+        }
+
+        return res > res2 ? "Left" : res < res2 ? "Right" : "Balance"
+
+
     }
 
-    console.log(result(arr2))
+    console.log(result(arr2,arr3))
 
     return (
         <div>
