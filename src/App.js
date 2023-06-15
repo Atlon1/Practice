@@ -5,14 +5,15 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = 10.1289767789
+    const arr2 = [1, 4, 1, 2, 11, 2, 3, 1]
     // const arr3 = 6
     // const arr4 = 3
     // const arr5 = true
 
 
     const result = (a) => {
-      return +a.toFixed(4).slice(0, -2);
+       const res = a.filter((elem) => elem === 1).length
+        return a.filter((elem) => elem === res).length
     }
 
     console.log(result(arr2))
