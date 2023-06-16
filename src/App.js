@@ -13,7 +13,10 @@ function App() {
 
 
     const result = (a) => {
-        return a > 0 ? Number((a / 1.15).toFixed(2)) : Number(-1)
+        if (a === null){
+            return -1
+        }
+        return Number((a / 1.15).toFixed(2))
 
     }
 
