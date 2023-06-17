@@ -11,15 +11,25 @@ function App() {
     // const arr4 = 110
     // const arr5 = true
 
+    const isPrime = (num) => {
+        for (let i = 2; i < num; i++){
+            if (num % i === 0){
+                return false
+            }
+        }
+        return true
+    }
 
     const result = (a) => {
-        const primeNumber = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97]
-        let res = 1
-        for (let i = 0; i < a; i++){
-           res = res * primeNumber[i]
+        let arr = []
+        let i = 2
+        while (arr.length < a){
+            if (isPrime(i)){
+                arr.push(i)
+            }
+            i++
         }
-
-        return res
+        return arr.reduce((a,b)=> a * b)
     }
 
     console.log(result(arr2))
