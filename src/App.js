@@ -6,33 +6,25 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = 3
-    // const arr3 = '==T'
-    // const arr4 = 110
+    const arr2 = [1, 6, 9, -3, 4, -78, 0]
+    const arr3 = -3
+    const arr4 = 4
     // const arr5 = true
 
-    const isPrime = (num) => {
-        for (let i = 2; i < num; i++){
-            if (num % i === 0){
-                return false
-            }
-        }
-        return true
+
+
+    const result = (a,b,c) => {
+       for (let i = 0; i < a.length; i++){
+           if (a[i] === b && a[i + 1] === c ){
+               return true
+           } else if (a[i] === c && a[i +1] === b){
+               return true
+           }
+       }
+       return false
     }
 
-    const result = (a) => {
-        let arr = []
-        let i = 2
-        while (arr.length < a){
-            if (isPrime(i)){
-                arr.push(i)
-            }
-            i++
-        }
-        return arr.reduce((a,b)=> a * b)
-    }
-
-    console.log(result(arr2))
+    console.log(result(arr2,arr3,arr4))
 
     return (
         <div>
