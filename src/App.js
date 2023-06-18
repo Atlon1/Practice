@@ -7,17 +7,17 @@ function App() {
 
 
     const arr2 = "xyab"
-    const arr3 = "xzca"
+    // const arr3 = "xzca"
     // const arr4 = 4
     // const arr5 = true
 
 
 
-    const result = (a,b) => {
-        return (a+b).split('').filter(c => !a.includes(c) || !b.includes(c)).join('')
+    const result = (a) => {
+        return a.trim() === a && !a.includes("  ")
     }
 
-    console.log(result(arr2,arr3))
+    console.log(result(arr2))
 
     return (
         <div>
