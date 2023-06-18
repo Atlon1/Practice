@@ -6,21 +6,18 @@ import React, {useState} from "react";
 function App() {
 
 
-    const arr2 = [2, 3, 4, 5]
-    // const arr3 = -3
+    const arr2 = "xyab"
+    const arr3 = "xzca"
     // const arr4 = 4
     // const arr5 = true
 
 
 
-    const result = (a) => {
-      if (a === null){
-          return 0
-      }
-      return a.filter((elem, idx) => idx % 2 === 0).reduce((a,b) => a + b)
+    const result = (a,b) => {
+        return (a+b).split('').filter(c => !a.includes(c) || !b.includes(c)).join('')
     }
 
-    console.log(result(arr2))
+    console.log(result(arr2,arr3))
 
     return (
         <div>
