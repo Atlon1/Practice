@@ -1,27 +1,28 @@
 import './App.css';
-import React, {useState} from "react";
+import React from "react";
 
 
 function App() {
 
 
-    const arr2 = 10
-    const arr3 = 10
-    const arr4 = 5
-    // const arr5 = true
+    const arr2 = 1500
+    const arr3 = 5
+    const arr4 = 100
+    const arr5 = 5000
 
 
-    const result = (a,b,c) => {
-       let days = 0
-        let gas = 100
-        while (gas >= c){
-           gas -= gas * b / 100
-            days++
+    const result = (a, b, c, d) => {
+
+        let years = 0
+        while (a < d) {
+            a = Math.floor((1 +b/100)* a +c)
+            years++
         }
-        return days
+
+        return years
     }
 
-    console.log(result(arr2,arr3,arr4))
+    console.log(result(arr2, arr3, arr4, arr5))
 
     return (
         <div>
