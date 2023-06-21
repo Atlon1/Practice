@@ -12,10 +12,7 @@ function App() {
 
 
     const result = (a, b, c) => {
-        return b === "+" ? a + c :
-            b === "-" ? a - c :
-                b === "*" ? a * c :
-                    b === "/" ? a / c : null
+
     }
 
     console.log(result(arr2, arr3, arr4))
