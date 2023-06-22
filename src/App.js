@@ -5,14 +5,16 @@ import React from "react";
 function App() {
 
 
-    const arr2 = [{range: 5}, {range: 10, damaged: true}, {damaged: true}]
+    const arr2 = 323500
     // const arr3 = "/"
     // const arr4 = 0
     // const arr5 = 5000
 
 
     const result = (a) => {
-      return   a.some(a => !a.damaged)
+      let h = Math.floor(a /3600)
+        let m = Math.floor(a % 3600 / 60)
+        return `${h} hour(s) and ${m} minute(s)`
     }
 
     console.log(result(arr2))
