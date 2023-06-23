@@ -5,20 +5,27 @@ import React from "react";
 function App() {
 
 
-    const arr2 = 454793
+    const arr2 = 'Lois Mary Lane'
     // const arr3 = "/"
     // const arr4 = 0
     // const arr5 = 5000
 
 
     const result = (a) => {
-        a = a.toString().split('')
-        for (let i = 0; i < a.length; i++) {
-            if (a[i] % 2 > 0 && a[i + 1] % 2 > 0) {
-                a[i] = a[i] + "-"
-            }
+        let res = a.split(' ')
+        let res2 = ""
+
+        for (let i = 1; i < res.length - 1; i++) {
+            res2 += res[i].slice(0, 1) + ". "
         }
-        return a.join('')
+
+        if (res.length <= 1) {
+            return `${res[0]}`
+        } else if (res.length <= 2){
+            return `${res[0]} ${res[res.length - 1]}`
+        }
+
+        return `${res[0]} ${res2}${res[res.length - 1]}`
     }
 
     console.log(result(arr2))
