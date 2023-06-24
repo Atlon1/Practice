@@ -13,17 +13,7 @@ function App() {
 
 
     const result = (a) => {
-        let res = a.split('')
-        let res2 =[]
-        for (let i = 0; i < res.length; i++){
-            if (res[i] === "a" || res[i] === "e" ||res[i] === "i" ||res[i] === "o" ||res[i] === "u"){
-                res2.push('1')
-            } else {
-                res2.push('0')
-            }
-        }
-
-        return (res2.join('')).toString()
+        return a.split('').map(elem => ("aeiouAEIOU".includes(elem)) ? 1 : 0).join('')
     }
 
     console.log(result(arr2))
