@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react";
+import React,{useState}from "react";
 
 
 function App() {
@@ -10,29 +10,25 @@ function App() {
     // const arr4 = 0
     // const arr5 = 5000
 
+    const [onClick, setOnClick] = useState(false)
 
-    const result = (a) => {
-        let res = a.split(' ')
-        let res2 = ""
+    // const result = (a) => {
+    //
+    // }
 
-        for (let i = 1; i < res.length - 1; i++) {
-            res2 += res[i].slice(0, 1) + ". "
-        }
+    // console.log(result(arr2))
 
-        if (res.length <= 1) {
-            return `${res[0]}`
-        } else if (res.length <= 2){
-            return `${res[0]} ${res[res.length - 1]}`
-        }
-
-        return `${res[0]} ${res2}${res[res.length - 1]}`
-    }
-
-    console.log(result(arr2))
 
     return (
         <div>
-
+            <div style={
+                {
+                    width: "100px",
+                    height: "100px",
+                    background: onClick ? "black" : "yellow"
+                }
+            }> </div>
+            <button onClick={(e =>{setOnClick(!onClick)})}>On</button>
         </div>
     );
 }
