@@ -5,7 +5,7 @@ import React,{useState}from "react";
 function App() {
 
 
-    const arr2 = "aeiou, abc"
+    const arr2 = "milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"
     // const arr3 = "/"
     // const arr4 = 0
     // const arr5 = 5000
@@ -13,7 +13,7 @@ function App() {
 
 
     const result = (a) => {
-        return a.split('').map(elem => ("aeiouAEIOU".includes(elem)) ? 1 : 0).join('')
+        return a.replace(/[aeiou]/g, v => v.toUpperCase())
     }
 
     console.log(result(arr2))
