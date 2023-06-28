@@ -5,21 +5,21 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 = [6, 9, 3, 4, 3, 82, 11]
+    const arr2 = [2, 10, 9, 3]
 
-    const arr3 = 3
+    // const arr3 = 3
     // const arr4 = 98
     // const arr5 = 5000
 
 
 
 
-    const result = (a,b) => {
-        return a.forEach((v,i) =>{if(v===b){a.push(i)}})
+    const result = (a) => {
+        return !!a.length && a.every(x => a.some(y => y === x -1 || y === x + 1))
 
     }
 
-    console.log(result(arr2,arr3))
+    console.log(result(arr2))
 
 
     return (
