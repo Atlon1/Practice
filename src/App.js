@@ -5,9 +5,9 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 = ['a', 'b', 'c']
+    const arr2 = [1,2,3,4]
 
-    const arr3 = 'd'
+    const arr3 = 3
     // const arr4 = 98
     // const arr5 = 5000
 
@@ -15,11 +15,7 @@ function App() {
 
 
     const result = (a,b) => {
-        if (a[a.lastIndexOf(b) + 1] >= a.length){
-            return undefined
-        } else {
-            return a[a.lastIndexOf(b) + 1]
-        }
+        return a.some(b)
 
     }
 
