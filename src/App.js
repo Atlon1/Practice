@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 = [1,2,3,4]
+    const arr2 = [1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]
 
     const arr3 = 3
     // const arr4 = 98
@@ -14,12 +14,12 @@ function App() {
 
 
 
-    const result = (a,b) => {
-        return a.some(b)
+    const result = (a) => {
+        return a.filter((ele, i)=> i !==a.indexOf(ele) && i === a.indexOf(ele, a.indexOf(ele) + 1))
 
     }
 
-    console.log(result(arr2,arr3))
+    console.log(result(arr2))
 
 
     return (
