@@ -5,21 +5,25 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 = [2, 10, 9, 3]
+    const arr2 = ['a', 'b', 'c']
 
-    // const arr3 = 3
+    const arr3 = 'd'
     // const arr4 = 98
     // const arr5 = 5000
 
 
 
 
-    const result = (a) => {
-        return !!a.length && a.every(x => a.some(y => y === x -1 || y === x + 1))
+    const result = (a,b) => {
+        if (a[a.lastIndexOf(b) + 1] >= a.length){
+            return undefined
+        } else {
+            return a[a.lastIndexOf(b) + 1]
+        }
 
     }
 
-    console.log(result(arr2))
+    console.log(result(arr2,arr3))
 
 
     return (
