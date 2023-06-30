@@ -5,21 +5,21 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 = [1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]
+    const arr2 = 42
 
-    const arr3 = 3
-    // const arr4 = 98
+    const arr3 = "number"
+    const arr4 = 5
     // const arr5 = 5000
 
 
 
 
-    const result = (a) => {
-        return a.filter((ele, i)=> i !==a.indexOf(ele) && i === a.indexOf(ele, a.indexOf(ele) + 1))
+    const result = (a,b,c) => {
 
+        return typeof(a) === b
     }
 
-    console.log(result(arr2))
+    console.log(result(arr2,arr3,arr4))
 
 
     return (
