@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 ="ceggodegge heggeregge"
+    const arr2 =[[1,2],[3,4],[5,6]]
 
     const arr3 = "number"
     const arr4 = 5
@@ -15,7 +15,9 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return a.replace(/egg/g, "")
+
+
+        return [].concat(...a).sort((a,b) => b -a).join(">")
     }
 
     console.log(result(arr2,arr3,arr4))
