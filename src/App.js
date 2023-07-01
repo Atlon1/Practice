@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 ="19:99:99"
+    const arr2 ="Sam"
 
     const arr3 = "number"
     const arr4 = 5
@@ -15,15 +15,16 @@ function App() {
 
 
     const result = (a,b,c) => {
-        const date = new Date()
-        if (a === ""){
-            return a
-        }
-        if (!/^\d{2}\:\d{2}\:\d{2}$/g.test(a)){
-            return null
-        }
-        date.setUTCHours(...a.split(":"))
-        return date.toLocaleTimeString('en',{hour12: false})
+        const res = [...a]
+
+       if (a.length <= 3){
+           return "Error: Name too short"
+       } else if (res[2] === "a" || res[2] === "e" || res[2] === "i" || res[2] === "o" || res[2] === "u"){
+           return a.slice(0,4)
+       } else {
+           return a.slice(0, 3)
+       }
+
     }
 
     console.log(result(arr2,arr3,arr4))
