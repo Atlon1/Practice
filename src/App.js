@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 =10
+    const arr2 =["Banana", "Orange", "Apple", "Mango", 0, 2, 2]
 
     const arr3 = 10
     const arr4 = 21
@@ -16,12 +16,10 @@ function App() {
 
     const result = (a,b,c) => {
 
-        if (c > 2 * b) return "Too much clothes";
-        if (c < b) return "Not enough clothes";
-        const res = +(a * 1.1 ** (c - b)).toFixed(2)
+       let num = a.filter(elem => typeof elem === "number").sort((a,b) => a - b)
+        let string = a.filter(elem => typeof  elem === 'string').sort()
 
-
-        return res
+        return num.concat(string)
 
     }
 
