@@ -16,10 +16,9 @@ function App() {
 
     const result = (a,b,c) => {
 
-       let num = a.filter(elem => typeof elem === "number").sort((a,b) => a - b)
-        let string = a.filter(elem => typeof  elem === 'string').sort()
-
-        return num.concat(string)
+            return a.reduce(function(x, fn) {
+                return fn(b)
+            }, b)
 
     }
 
