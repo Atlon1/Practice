@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 ="a **&  bZ"
+    const arr2 =[{'country' : 'Spain', 'capital' : 'Madrid'}]
 
     const arr3 = 10
     const arr4 = 21
@@ -15,8 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-        a = a.toLowerCase()
-        return 'abcdefghijklmnopqrstuvwxyz'.split('').map((elem) =>  a.indexOf(elem) !== -1 ? 1 : 0).join('')
+         return a.map((elem) => `The capital of ${elem.state || elem.country} is ${elem.capital}`)
     }
 
     console.log(result(arr2,arr3,arr4))
