@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 = "10000000101101111110011001000"
+    const arr2 = "Hi!"
 
     const arr3 = 4
     const arr4 = 5
@@ -15,7 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-       return a.split("").map((elem) => elem === "0" ? "1" : "0").join('')
+       return a.replace(/\b!+/g, "")
     }
 
     console.log(result(arr2,arr3,arr4))
