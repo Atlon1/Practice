@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 = "Hi!"
+    const arr2 = []
 
     const arr3 = 4
     const arr4 = 5
@@ -15,7 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-       return a.replace(/\b!+/g, "")
+       return a.every(Array.isArray)
     }
 
     console.log(result(arr2,arr3,arr4))
