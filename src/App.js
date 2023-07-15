@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 = []
+    const arr2 = 'a b c d e fgh'
 
     const arr3 = 4
     const arr4 = 5
@@ -15,7 +15,8 @@ function App() {
 
 
     const result = (a,b,c) => {
-       return a.every(Array.isArray)
+      let res = a.split(' ').sort((a,b) => b.length - a.length)
+          return res[0]
     }
 
     console.log(result(arr2,arr3,arr4))
