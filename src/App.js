@@ -15,7 +15,9 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return a.split(' ').length
+        a = a.toUpperCase()
+
+        return [...a].map((_, i) => a.slice(i) + a.slice(0, i))
     }
 
     console.log(result(arr2,arr3,arr4))
