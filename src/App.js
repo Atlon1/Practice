@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 =[1, 2, 3, 4]
+    const arr2 ='slug spider rock gravel gravel gravel gravel gravel gravel gravel'
 
     const arr3 = 4
     const arr4 = 5
@@ -15,8 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-        let lest = arguments[arguments.length - 1]
-       return a[a.length - 1] || lest
+        return a.split(' ').map((elem) => elem === "rock" ? "rock" : "gravel").join(' ')
     }
 
     console.log(result(arr2,arr3,arr4))
