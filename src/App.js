@@ -5,9 +5,9 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 ='slug spider rock gravel gravel gravel gravel gravel gravel gravel'
+    const arr2 =80
 
-    const arr3 = 4
+    const arr3 = 15
     const arr4 = 5
     // const arr5 = 5000
 
@@ -15,7 +15,9 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return a.split(' ').map((elem) => elem === "rock" ? "rock" : "gravel").join(' ')
+        let res = Math.ceil(a / b)
+
+        return res
     }
 
     console.log(result(arr2,arr3,arr4))
