@@ -5,9 +5,9 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 =24
+    const arr2 ="This is a string"
 
-    const arr3 = 4
+    const arr3 = 3
     const arr4 = 5
     // const arr5 = 5000
 
@@ -15,11 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-        let average = 0;
-        if (a < 0 || b < 0 || a- b < 0) return null;
-        else average = (a - b) /2;
-
-        return [average+b, average];
+       return (a.split(' ')[b]+"-").repeat(c).slice(0,-1)
     }
 
     console.log(result(arr2,arr3,arr4))
