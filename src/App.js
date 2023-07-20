@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 ="Hi! Hi!"
+    const arr2 =68
 
     const arr3 = 3
     const arr4 = 5
@@ -15,7 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return a.replace(/\bHi!/gi, " ")
+        return a > 0 ? +(a * a * Math.PI).toFixed(2) : false
     }
 
     console.log(result(arr2,arr3,arr4))
