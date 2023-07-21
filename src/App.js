@@ -5,9 +5,9 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 ="hel2!lo"
+    const arr2 ='hello world'
 
-    const arr3 = 3
+    const arr3 = '-'
     const arr4 = 5
     // const arr5 = 5000
 
@@ -15,7 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return  a.replace(/[^a-z\d]/gi, "").length
+        return a.split('').map((elem, i, arr) => arr.filter((vi) => vi === elem).length).join(b)
 
 
     }
