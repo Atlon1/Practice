@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 ="abraxxxas"
+    const arr2 ="hel2!lo"
 
     const arr3 = 3
     const arr4 = 5
@@ -15,7 +15,9 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return /^[^x]*xxx/.test(a)
+        return  a.replace(/[^a-z\d]/gi, "").length
+
+
     }
 
     console.log(result(arr2,arr3,arr4))
