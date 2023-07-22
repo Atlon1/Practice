@@ -5,9 +5,9 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 ='hello world'
+    const arr2 =10
 
-    const arr3 = '-'
+    const arr3 = 10
     const arr4 = 5
     // const arr5 = 5000
 
@@ -15,7 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return a.split('').map((elem, i, arr) => arr.filter((vi) => vi === elem).length).join(b)
+        return Number(a/b*48).toFixed(1) || 0
 
 
     }
