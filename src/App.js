@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 ="abd"
+    const arr2 =[ [ "foo", "foo@foo.com" ], [ "bar_", "bar@bar.com" ] ]
 
     const arr3 = 10
     const arr4 = 5
@@ -15,7 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return 'abcdefghijklmnopqrstuvwxyz'.includes([...a].sort().join(''))
+        return a.filter((elem) => elem[0].slice(-1) === "_")
 
 
     }
