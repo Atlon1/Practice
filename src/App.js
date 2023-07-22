@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 =10
+    const arr2 =[1,2,3]
 
     const arr3 = 10
     const arr4 = 5
@@ -15,7 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return Number(a/b*48).toFixed(1) || 0
+        return a.reverse()
 
 
     }
