@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 =3
+    const arr2 ='a'
 
     const arr3 = 10
     const arr4 = 5
@@ -15,13 +15,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-       let pattern = "1"
-
-        for (let i = 2; i <= a; i++){
-            pattern += "\n1" + Array(i).join("*") + i;
-        }
-
-        return pattern
+       return /^[aeiou]$/i.test(a)
 
     }
 
