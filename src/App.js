@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 =[ [ "foo", "foo@foo.com" ], [ "bar_", "bar@bar.com" ] ]
+    const arr2 =3
 
     const arr3 = 10
     const arr4 = 5
@@ -15,8 +15,13 @@ function App() {
 
 
     const result = (a,b,c) => {
-        return a.filter((elem) => elem[0].slice(-1) === "_")
+       let pattern = "1"
 
+        for (let i = 2; i <= a; i++){
+            pattern += "\n1" + Array(i).join("*") + i;
+        }
+
+        return pattern
 
     }
 
