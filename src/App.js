@@ -5,7 +5,10 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const arr2 =1892376
+    const arr2 =[
+        { firstName: 'Aba', lastName: 'N.', country: 'Ghana', continent: 'Africa', age: 21, language: 'Python' },
+        { firstName: 'Abb', lastName: 'O.', country: 'Israel', continent: 'Asia', age: 39, language: 'Java' }
+    ];
 
     const arr3 = 5
     const arr4 = 5
@@ -15,9 +18,13 @@ function App() {
 
 
     const result = (a,b,c) => {
-        const res = a.toString().split('').map((elem) => parseInt(elem)).reduce((a,b) => a + b)
+        return a.filter((elem) => elem.firstName
+                .split('')
+                .map(c=>c.charCodeAt(0))
+                .reduce((a,b) => a+b)
+                % 2 !==0
 
-        return res % 9 === 0
+        )
     }
 
     console.log(result(arr2,arr3,arr4))
