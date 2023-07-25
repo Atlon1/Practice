@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr2 = "The quick brown fox jumps over the lazy dog"
+    const arr2 = "stop Making spongebob Memes!"
     const arr3 = 4
     const arr4 = 5
     // const arr5 = 5000
@@ -14,14 +14,7 @@ function App() {
 
 
     const result = (a,b,c) => {
-        const res = a.split(' ')
-        const res2 = []
-        for (let i = 0; i < res.length; i++){
-            if (res[i].length > b){
-                res2.push(res[i])
-            }
-        }
-        return res2
+       return a.split('').map((elem, i) => i % 2 === 0 ? elem.toUpperCase() : elem.toLowerCase()).join('')
     }
 
     console.log(result(arr2,arr3,arr4))
