@@ -5,16 +5,24 @@ import React from "react";
 function App() {
 
 
-    const arr2 = "stop Making spongebob Memes!"
-    const arr3 = 4
-    const arr4 = 5
+    const arr2 = 9
+    const arr3 = 5
+    const arr4 = 1.8
     // const arr5 = 5000
 
 
 
 
     const result = (a,b,c) => {
-       return a.split('').map((elem, i) => i % 2 === 0 ? elem.toUpperCase() : elem.toLowerCase()).join('')
+      if (a + b === c){
+          return "addition"
+      } else if (a - b === c){
+          return 'subtraction'
+      }else if (a * b === c){
+          return 'multiplication'
+      }else if (a / b === c){
+          return 'division'
+      }
     }
 
     console.log(result(arr2,arr3,arr4))
