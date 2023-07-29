@@ -5,20 +5,20 @@ import React from "react";
 function App() {
 
 
-    const arr2 = "8409"
-    const arr3 = 3
+    const arr2 = "avcxe"
+    const arr3 = "avbeee"
     const arr4 = 4
     // const arr5 = 5000
 
 
 
 
-    const result = (a) => {
+    const result = (a,b) => {
 
-       return [...a].reduce((a,b)=> +a+b,0)%3===0
+       return a.length >= b.length ? b + a.split('').reverse().join('') + b : a + b.split('').reverse().join('') + a
     }
 
-    console.log(result(arr2))
+    console.log(result(arr2,arr3))
 
 
     return (
