@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr2 = [1,3,3,4,5]
+    const arr2 = "8409"
     const arr3 = 3
     const arr4 = 4
     // const arr5 = 5000
@@ -15,7 +15,7 @@ function App() {
 
     const result = (a) => {
 
-       return a.filter((i)=> a.indexOf(i) === a.lastIndexOf(i)).reduce((a,b)=> a + b)
+       return [...a].reduce((a,b)=> +a+b,0)%3===0
     }
 
     console.log(result(arr2))
