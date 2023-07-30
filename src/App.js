@@ -14,8 +14,10 @@ function App() {
 
 
     const result = (a,b) => {
-        return [(a < 24) ? a / 15 : (a - 16) / 4,
-            (b < 24) ? b / 15 : (b - 16) / 5].map(Math.floor)
+       if (a > 0 && b > 0) return 1
+       if (a < 0 && b > 0) return 2
+       if (a < 0 && b < 0) return 3
+        return 4
     }
 
     console.log(result(arr1,arr2))
