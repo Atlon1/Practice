@@ -6,15 +6,17 @@ function App() {
 
 
 
-    const arr1 = "abcdefghijklm"
-    const arr2 = 15
+    const arr1 = 1024
+    const arr2 = "4:3"
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
     const result = (a,b) => {
-       return a.length < 2 || a.length > 100 ? "invalid string" : a.split('').filter((ele, idx) => idx % 2)
+       const [ab, bc ] = b.split(":")
+        const height = a / ab * bc
+        return a + "x" + height
     }
 
     console.log(result(arr1,arr2))
