@@ -6,7 +6,7 @@ function App() {
 
 
 
-    const arr1 = [1,21,4,7,5]
+    const arr1 = "abcdefghijklm"
     const arr2 = 15
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -14,7 +14,7 @@ function App() {
 
 
     const result = (a,b) => {
-       return a.filter((elem, idx)=>a.slice(idx+1).every(z=> z < elem) )
+       return a.length < 2 || a.length > 100 ? "invalid string" : a.split('').filter((ele, idx) => idx % 2)
     }
 
     console.log(result(arr1,arr2))
