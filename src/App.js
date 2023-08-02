@@ -14,12 +14,7 @@ function App() {
 
 
     const result = (a,b) => {
-       for (let i = 0; i < a.length; i++){
-           if (a[i] % 2 !== 0){
-               return a.indexOf(a[i])
-           }
-       }
-       return -1
+      return a(...b)
     }
 
     console.log(result(arr1,arr2))
