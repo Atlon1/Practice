@@ -6,7 +6,7 @@ function App() {
 
 
 
-    const arr1 = [4,-8,98,-12,-7,90,100]
+    const arr1 = ["yoda", "best", "has"]
     const arr2 = 3
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -14,7 +14,7 @@ function App() {
 
 
     const result = (a,b) => {
-      return a(...b)
+     return a.reduce((a,b,index) => a + b [index], "")
     }
 
     console.log(result(arr1,arr2))
