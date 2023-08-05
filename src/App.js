@@ -13,7 +13,7 @@ function App() {
 
 
     const result = (a,b) => {
-       return !a-- || a % 9 % 2 === 1
+        return (b*2+1)-a;
     }
 
     console.log(result(arr1,arr2))
