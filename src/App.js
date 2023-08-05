@@ -13,7 +13,7 @@ function App() {
 
 
     const result = (a,b) => {
-        return (b*2+1)-a;
+        return a.length ? Math.max(...a.map(x=>x.filter(y=>y==x).length)) : 0
     }
 
     console.log(result(arr1,arr2))
