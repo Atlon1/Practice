@@ -5,19 +5,20 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [ [ 'ABC', 65 ], [ 'HGR', 74 ], [ 'BYHT', 74 ] ]
+    const arr1 = ["0","1","2","3","a","b"]
     const arr2 = 4
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
-    const result = (ticket, win) => {
-        if(ticket.filter(a => a[0].split('').some(b => b.charCodeAt(0) == a[1])).length >= win)
-        {
-            return "Winner!";
-        }
-        return "Loser!";
+    const result = (a,b) => {
+
+        const even = a.filter((elem) => elem.replace(/[a-z]/g, "")).filter((elem) => elem % 2 !== 0).length
+        const odd = a.filter((elem) => elem.replace(/[a-z]/g, "")).filter((elem) => elem % 2 === 0).length
+
+
+        return even - odd
     }
 
     console.log(result(arr1,arr2))
