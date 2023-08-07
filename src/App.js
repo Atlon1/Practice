@@ -5,16 +5,19 @@ import React from "react";
 function App() {
 
 
-    const arr1 = [['gOOd', 'bad', 'BAD', 'bad', 'bad'], ['bad', 'bAd', 'bad'], ['GOOD', 'bad', 'bad', 'bAd']]
+    const arr1 = [ [ 'ABC', 65 ], [ 'HGR', 74 ], [ 'BYHT', 74 ] ]
     const arr2 = 4
     // const arr3 = 0.18
     // const arr4 = 1200
     // const arr5 = true
 
 
-    const result = (a,b) => {
-        const res = a.toString().toLowerCase().split(/good/g).length-1
-        return res > 2 ? "I smell a series!" : res >0 ? "Publish" : "Fail"
+    const result = (ticket, win) => {
+        if(ticket.filter(a => a[0].split('').some(b => b.charCodeAt(0) == a[1])).length >= win)
+        {
+            return "Winner!";
+        }
+        return "Loser!";
     }
 
     console.log(result(arr1,arr2))
