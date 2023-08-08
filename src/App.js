@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "aabbccdde"
+    const arr1 = {name: 'Jeremy', age: 24, role: 'Software Engineer'}
     const arr2 = 4
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,7 +13,7 @@ function App() {
 
 
     const result = (a,b) => {
-        return a.split('').filter((ele) => a.indexOf(ele) === a.lastIndexOf(ele))[0]
+       return Object.entries(a).sort()
 
     }
 
