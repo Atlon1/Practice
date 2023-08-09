@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 5
+    const arr1 = "ablak"
     const arr2 = 2
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,7 +13,7 @@ function App() {
 
 
     const result = (a,b) => {
-      return `It's a ${!Array.isArray(a) ? `fake` : a.includes(5) && a.includes(13) ? "black" : "white"} array`
+       return (/[aáoóuú]/) .test(a)? `${a}nek`: `${a}nak`
     }
 
     console.log(result(arr1,arr2))
