@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = 267
+    const arr1 = [15,11,10,7,12]
     const arr2 = 2
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,8 +13,7 @@ function App() {
 
 
     const result = (a,b) => {
-        let binary = a.toString(2)
-       return parseInt(binary.split("").reverse().join(''), 2)
+      return [...Array(a.sort((a,b)=> a- b).length)].map((_, idx) => idx % 2 ? a.shift() : a.pop())
     }
 
     console.log(result(arr1,arr2))
