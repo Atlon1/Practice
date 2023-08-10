@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "ablak"
+    const arr1 = 267
     const arr2 = 2
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,7 +13,8 @@ function App() {
 
 
     const result = (a,b) => {
-       return (/[aáoóuú]/) .test(a)? `${a}nek`: `${a}nak`
+        let binary = a.toString(2)
+       return parseInt(binary.split("").reverse().join(''), 2)
     }
 
     console.log(result(arr1,arr2))
