@@ -5,7 +5,7 @@ import React from "react";
 function App() {
 
 
-    const arr1 = "Hi! Hi!"
+    const arr1 = []
     const arr2 = 'bb'
     // const arr3 = 0.18
     // const arr4 = 1200
@@ -13,9 +13,8 @@ function App() {
 
 
     const result = (a,b) => {
-      const res = a.replace(/!/g, "")
-
-        return res + "!".repeat(a.length - res.length)
+        if (a == null) return 0;
+        return 1 + (a.next);
     }
 
     console.log(result(arr1,arr2))
