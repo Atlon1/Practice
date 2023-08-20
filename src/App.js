@@ -13,13 +13,11 @@ function App() {
 
 
     const result = (a, b, c) => {
-        return a
-            .split(' ')
-            .map(s => s[0])
-            .join('')
-            .replace(/i/ig, '1')
-            .replace(/o/ig, '0')
-            .replace(/s/ig, '5');
+        let hour = Math.floor(a/30), minutes = Math.floor((a%30)*2);
+        if (hour < 10){hour = "0"+ hour;}
+        if (hour <= 0){hour = 12;}
+        if (minutes < 10){minutes = "0" + minutes;}
+        return hour + ":" + minutes;
     }
     console.log(result(arr1, arr2, arr3))
 
