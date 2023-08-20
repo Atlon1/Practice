@@ -13,7 +13,13 @@ function App() {
 
 
     const result = (a, b, c) => {
-        return [...arguments].filter(elem => elem > 0).length === 2
+        return a
+            .split(' ')
+            .map(s => s[0])
+            .join('')
+            .replace(/i/ig, '1')
+            .replace(/o/ig, '0')
+            .replace(/s/ig, '5');
     }
     console.log(result(arr1, arr2, arr3))
 
