@@ -13,11 +13,14 @@ function App() {
 
 
     const result = (a, b, c) => {
-        let hour = Math.floor(a/30), minutes = Math.floor((a%30)*2);
-        if (hour < 10){hour = "0"+ hour;}
-        if (hour <= 0){hour = 12;}
-        if (minutes < 10){minutes = "0" + minutes;}
-        return hour + ":" + minutes;
+        const operations = {
+            '+' : (a, b) => a + b,
+            '-' : (a, b) => a - b,
+            '*' : (a, b) => a * b,
+            '//': (a, b) => a / b,
+        };
+        const [left, operator, right] = a.split(' ');
+        return '.'.repeat(operations[operator](left.length, right.length));
     }
     console.log(result(arr1, arr2, arr3))
 
