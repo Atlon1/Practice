@@ -8,14 +8,21 @@ function App() {
 
 
 
-    const arr1 = [14,8,44,5,10,6,30,50,41,50,34,10,45,36]
-    const arr2 = 10
+    const arr1 = 2
+    const arr2 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     const arr3 = 3
     // const arr4 = 1200
     // const arr5 = true
 
     const result = (a,b) => {
-        return Math.ceil(parseFloat(a.reduce((a,b) => a + b)))
+        const res = b.sort((a,b) => b - a )
+        let array = []
+
+        for (let i = 0; i < a; i++){
+            array.push(res[i])
+        }
+
+        return array.reverse()
     }
 
     console.log(result(arr1,arr2))
