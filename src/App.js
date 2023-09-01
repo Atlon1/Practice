@@ -5,11 +5,13 @@ import React from "react";
 function App() {
 
 
+
     const arr1 = "Ala ma kota"
-    const arr2 = 10
+    const arr2 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     const arr3 = 3
     // const arr4 = 1200
     // const arr5 = true
+
 
 
     const result = (a, b, c) => {
@@ -25,10 +27,10 @@ function App() {
             }
         }
 
-
         return count
     }
-    console.log(result(arr1, arr2, arr3))
+
+    console.log(result(arr1,arr2))
 
 
     return (
