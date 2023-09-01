@@ -6,7 +6,7 @@ function App() {
 
 
 
-    const arr1 = "Ala ma kota"
+    const arr1 = "Alaalalalalalalaala fwdfsdfsd"
     const arr2 = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     const arr3 = 3
     // const arr4 = 1200
@@ -15,15 +15,17 @@ function App() {
 
 
     const result = (a, b, c) => {
-        const res = a.split('').map((elem) => elem.toLowerCase())
-        let count = {}
-        for (let i = 0; i < res.length; i++) {
-            if (res[i].match(/[a-z]/i)) {
-                if (count[res[i]]) {
+        const res = [...a].map((elem)=> elem.toLowerCase())
+        const count = {}
+
+        for (let i = 0; i < res.length; i++){
+            if (res[i].match(/[a-z]/i)){
+                if (count[res[i]]){
                     count[res[i]]++
-                } else {
+                } else  {
                     count[res[i]] = 1
                 }
+
             }
         }
 
