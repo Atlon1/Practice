@@ -6,7 +6,7 @@ function App() {
 
 
 
-    const arr1 = 10
+    const arr1 = []
     const arr2 = 3
     const arr3 = 1
     // const arr4 = 1200
@@ -15,8 +15,13 @@ function App() {
 
 
     const result = (a, b, c) => {
-       return  Math.max(1, Math.ceil((a -b) / (b - c)) + 1);
+        if (a <= 0){
+            return null
+        }   else {
+            return  a[a.length - 1]
+        }
     }
+
 
     console.log(result(arr1,arr2, arr3))
 
