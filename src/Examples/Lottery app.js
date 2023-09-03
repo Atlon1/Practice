@@ -3,7 +3,7 @@ import { CSVLink } from 'react-csv'
 import './App.css';
 
 function App() {
-    const numberOfRows = 1000;
+    const numberOfRows = 100;
     const minRandomValue = 1;
     const maxRandomValue = 49;
 
@@ -15,9 +15,9 @@ function App() {
                 let num = minRandomValue + Math.floor(Math.random() * (maxRandomValue - minRandomValue + 1));
                 row.push(num);
             }
-            uniqueNumbersSet.add(row.join());
+            uniqueNumbersSet.add(row.join(", "));
         }
-        return Array.from(uniqueNumbersSet).map(row => row.split(" "));
+        return Array.from(uniqueNumbersSet).map(row => row.split(", "));
     };
 
     const [generatedNumbers, setGeneratedNumbers] = useState([]);
@@ -35,15 +35,21 @@ function App() {
                 <>
                     <CSVLink data={generatedNumbers} filename={"lottery_numbers.csv"} className='btn btn-success'>Export to CSV</CSVLink>
                     <table>
+                        <thead>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                        </tr>
+                        </thead>
                         <tbody>
                         {generatedNumbers.map((elem, index) => (
                             <tr key={index}>
                                 {elem.map((number, subIndex) => (
-
-                                    <td key={subIndex}>
-                                        <div>Losowanie numer {index}</div>
-                                        <div>{number}</div>
-                                        </td>
+                                    <td key={subIndex}>{number}</td>
                                 ))}
                             </tr>
                         ))}
