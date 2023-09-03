@@ -1,53 +1,63 @@
+import React, { useState } from "react";
+import { CSVLink } from 'react-csv'
 import './App.css';
-import React, {useState} from "react";
-
 
 function App() {
+    const numberOfRows = 100;
+    const minRandomValue = 1;
+    const maxRandomValue = 49;
 
-
-    const arr1 = 100
-    const arr2 = 3
-    const arr3 = 1
-    // const arr4 = 1200
-    // const arr5 = true
-
-
-    const result = (a, b, c) => {
-        let res = []
-        let min = 1
-        let max = 49
-        for (let i = 0; i < a; i++) {
-            const row = []
+    const generateRandomNumbers = (numberOfRows) => {
+        const uniqueNumbersSet = new Set();
+        while (uniqueNumbersSet.size < numberOfRows) {
+            const row = [];
             for (let j = 0; j < 6; j++) {
-                let num = min + Math.floor((max - min) * Math.random())
-                row.push(num)
+                let num = minRandomValue + Math.floor(Math.random() * (maxRandomValue - minRandomValue + 1));
+                row.push(num);
             }
-            res.push(row)
+            uniqueNumbersSet.add(row.join(", "));
         }
-        return res.filter((item, index, arr) => arr.indexOf(item) === index)
+        return Array.from(uniqueNumbersSet).map(row => row.split(", "));
+    };
 
-    }
+    const [generatedNumbers, setGeneratedNumbers] = useState([]);
 
-    const [generateNumbers, setGenerateNumbers] =useState([])
+    const generateButton = () => {
+        const numbers = generateRandomNumbers(numberOfRows);
+        setGeneratedNumbers(numbers);
+    };
 
-
-    const genertateButton = () =>{
-        const number = result(arr1)
-        setGenerateNumbers(number)
-    }
     return (
-     <div>
-         <button onClick={genertateButton}>Wygeneruj Liste</button>
-         {generateNumbers.length > 0 && (
-             <ul>
-                 {generateNumbers.map((elem, index) => (
-                     <li key={index}>
-                         {elem.join(', ')}
-                     </li>
-                 ))}
-             </ul>
-         )}
-     </div>
+        <div>
+            <button onClick={generateButton} className='btn btn-primary'>Wygeneruj Listę</button>
+
+            {generatedNumbers.length > 0 && (
+                <>
+                    <CSVLink data={generatedNumbers} filename={"lottery_numbers.csv"} className='btn btn-success'>Export to CSV</CSVLink>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {generatedNumbers.map((elem, index) => (
+                            <tr key={index}>
+                                {elem.map((number, subIndex) => (
+                                    <td key={subIndex}>{number}</td>
+                                ))}
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </>
+            )}
+        </div>
     );
 }
 
