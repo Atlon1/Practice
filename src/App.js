@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { CSVLink } from 'react-csv'
 import './App.css';
@@ -8,16 +9,23 @@ function App() {
     const maxRandomValue = 49;
 
     const generateRandomNumbers = (numberOfRows) => {
-        const uniqueNumbersSet = new Set();
-        while (uniqueNumbersSet.size < numberOfRows) {
-            const row = [];
+        const generatedNumbers = [];
+
+        while (generatedNumbers.length < numberOfRows) {
+            const uniqueNumbersSet = new Set();
+
             for (let j = 0; j < 6; j++) {
-                let num = minRandomValue + Math.floor(Math.random() * (maxRandomValue - minRandomValue + 1));
-                row.push(num);
+                let num;
+                do {
+                    num = minRandomValue + Math.floor(Math.random() * (maxRandomValue - minRandomValue + 1));
+                } while (uniqueNumbersSet.has(num));
+                uniqueNumbersSet.add((num));
             }
-            uniqueNumbersSet.add(row.join());
+
+            generatedNumbers.push(Array.from(uniqueNumbersSet).sort((a, b) => a - b));
         }
-        return Array.from(uniqueNumbersSet).map(row => row.split(" "));
+
+        return generatedNumbers;
     };
 
     const [generatedNumbers, setGeneratedNumbers] = useState([]);
@@ -26,6 +34,8 @@ function App() {
         const numbers = generateRandomNumbers(numberOfRows);
         setGeneratedNumbers(numbers);
     };
+
+
 
     return (
         <div>
@@ -39,11 +49,9 @@ function App() {
                         {generatedNumbers.map((elem, index) => (
                             <tr key={index}>
                                 {elem.map((number, subIndex) => (
-
                                     <td key={subIndex}>
-                                        <div>Losowanie numer {index}</div>
                                         <div>{number}</div>
-                                        </td>
+                                    </td>
                                 ))}
                             </tr>
                         ))}
