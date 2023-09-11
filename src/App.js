@@ -1,65 +1,42 @@
 
-import React, { useState } from "react";
-import { CSVLink } from 'react-csv'
 import './App.css';
+import React from "react";
+
 
 function App() {
-    const numberOfRows = 1000;
-    const minRandomValue = 1;
-    const maxRandomValue = 49;
 
-    const generateRandomNumbers = (numberOfRows) => {
-        const generatedNumbers = [];
 
-        while (generatedNumbers.length < numberOfRows) {
-            const uniqueNumbersSet = new Set();
+    const arr1 = 5
+    // const arr2 = 'Phoenix'
+    // const arr3 = 'Arizona'
+    // const arr4 = 8
+    // const arr5 = true
 
-            for (let j = 0; j < 6; j++) {
-                let num;
-                do {
-                    num = minRandomValue + Math.floor(Math.random() * (maxRandomValue - minRandomValue + 1));
-                } while (uniqueNumbersSet.has(num));
-                uniqueNumbersSet.add((num));
+
+    const result = (a) => {
+        let res = ''
+        for (let i = 1; i <= a; i++){
+            for (let j = 1; j <= a; j++){
+                if (j < a){
+                    let res2 = j * i
+                    res += ` ${j} * ${i} = ${res2} |`
+                } else {
+                    let res2 = j * i
+                    res += ` ${j} * ${i} = ${res2}`
+                }
             }
-
-            generatedNumbers.push(Array.from(uniqueNumbersSet).sort((a, b) => a - b));
+            res += `\n`
         }
+        return res
+    }
 
-        return generatedNumbers;
-    };
 
-    const [generatedNumbers, setGeneratedNumbers] = useState([]);
-
-    const generateButton = () => {
-        const numbers = generateRandomNumbers(numberOfRows);
-        setGeneratedNumbers(numbers);
-    };
-
+    console.log(result(arr1))
 
 
     return (
-        <div>
-            <button onClick={generateButton} className='btn btn-primary'>Wygeneruj Listę</button>
-
-            {generatedNumbers.length > 0 && (
-                <>
-                    <CSVLink data={generatedNumbers} filename={"lottery_numbers.csv"} className='btn btn-success'>Export to CSV</CSVLink>
-                    <table>
-                        <tbody>
-                        {generatedNumbers.map((elem, index) => (
-                            <tr key={index}>
-                                {elem.map((number, subIndex) => (
-                                    <td key={subIndex}>
-                                        <div>{number}</div>
-                                    </td>
-                                ))}
-                            </tr>
-                        ))}
-                        </tbody>
-                    </table>
-                </>
-            )}
-        </div>
+        <>
+        </>
     );
 }
 
