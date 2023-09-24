@@ -16,23 +16,28 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-    const numA = parseInt(prompt("Cyfra 1"))
-    const numB = parseInt(prompt("Cyfra 2"))
-    const res = prompt("Działanie")
 
-    const result = (a) => {
 
+    const result = () => {
+
+        const numA = parseInt(prompt("Cyfra 1"))
+        const numB = parseInt(prompt("Cyfra 2"))
+        const res = prompt("Działanie")
+        return (
+
+            <h1>
+                {res === "*" ? numA * numB :
+                    res === "/" ? numA / numB :
+                        res === "+" ? numA + numB : numA - numB}
+            </h1>
+        )
 
     }
 
 
     return (
         <>
-            <h1>
-                {res === "*" ? numA * numB :
-                    res === "/" ? numA / numB :
-                        res === "+" ? numA + numB : numA - numB}
-            </h1>
+            {result()}
         </>
     );
 }
