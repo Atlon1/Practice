@@ -12,11 +12,9 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-    const numA = parseInt(prompt('Numer z a'))
-    const numB = parseInt(prompt('Numer z B'))
-   const res = numA + numB
 
-
+    const age = prompt("podaj swoj wiek")
+    const year = new Date().getFullYear()
 
     const result = (a) => {
 
@@ -28,7 +26,7 @@ function App() {
 
     return (
         <>
-            {res}
+<h1>{year - age}</h1>
         </>
     );
 }
