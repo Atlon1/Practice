@@ -1,42 +1,39 @@
 import './App.css';
-import React from "react";
-
-
+import React, {useState} from "react";
 
 
 function App() {
 
-
-    const data =123
+    const [text, setText] = useState("W")
+    const [number, setNumber] = useState(0)
+    const data = 123
     const arr2 = ["Ala", "Puszek", "Zosia", "Marcin", "Kamil"]
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
 
-const eventsMove = () => {
-        console.log('najechano')
-}
-const eventsLeave = () => {
-        console.log('opuszczono')
-}
+
+    const handlePlus = () => {
+        const state = 'itaj!'.split('')
+
+        setText(prevState => prevState +  state[number])
+        setNumber(prevState => prevState + 1)
+    }
+    const handleMinus = () => {
 
 
+        setText(prevState => prevState.slice(0,number) )
+        setNumber(prevState => prevState - 1)
+    }
 
 
     return (
         <>
-            <div
-                onMouseEnter={eventsMove}
-                onMouseLeave={eventsLeave}
-                style={
-                {
-                    width: '100px',
-                    height: '100px',
-                    backgroundColor: 'red'
-                }
-            }>
-
+            <button onClick={handleMinus}>-</button>
+            <div>
+                {text}
             </div>
+            <button onClick={handlePlus}>+</button>
         </>
     );
 }
