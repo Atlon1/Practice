@@ -1,6 +1,6 @@
 import './App.css';
 import React from "react";
-import Func from "./Func";
+
 
 
 
@@ -13,17 +13,30 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
+const eventsMove = () => {
+        console.log('najechano')
+}
+const eventsLeave = () => {
+        console.log('opuszczono')
+}
 
-    const result = () => {
-    }
 
 
-console.log(result())
 
     return (
         <>
-                <Func name='Maciej'
-                        surname = 'Szajstek'/>
+            <div
+                onMouseEnter={eventsMove}
+                onMouseLeave={eventsLeave}
+                style={
+                {
+                    width: '100px',
+                    height: '100px',
+                    backgroundColor: 'red'
+                }
+            }>
+
+            </div>
         </>
     );
 }
