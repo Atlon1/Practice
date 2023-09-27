@@ -1,5 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
+import Modal from "./Modal";
 
 
 function App() {
@@ -12,24 +13,12 @@ function App() {
     // const arr5 = true
 
 
-const [color, setColor] = useState(true)
 
-    useEffect(()=> {
-        const timer = setTimeout(()=> {
-            setColor(!color)
-        },5000)
-        return () => clearTimeout(timer)
-    }, [color])
 
     return (
         <>
-       <div style={
-           {
-               width: '200px',
-               height: '200px',
-               backgroundColor: color ? 'green' : 'red'
-           }
-       }></div>
+   <h1>Test okna modalnego</h1>
+            <Modal heading='Zapisz sie do newslettera'/>
 
         </>
     );
