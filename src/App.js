@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import Modal from "./Modal";
-
+import ClockTime from "./ClockTime";
+import ClockDate from "./ClockDate";
 
 function App() {
 
@@ -12,14 +12,32 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
+    const clockTime = new Date().toLocaleTimeString()
+    const [clockTime1, setClockTime1] = useState(clockTime)
+
+    useEffect(()=> {
+        const interval =setInterval(()=> {
+            setClockTime1(clockTime)
+        },1000)
 
 
+    },[clockTime1])
+
+    const clockDate = new Date().toLocaleDateString()
+    const [clockTime2, setClockTime2] = useState(clockTime)
+
+    useEffect(()=> {
+        const interval =setInterval(()=> {
+            setClockTime2(clockDate)
+        },1000)
+
+
+    },[clockTime2])
 
     return (
         <>
-   <h1>Test okna modalnego</h1>
-            <Modal heading='Zapisz sie do newslettera'/>
-
+            <ClockTime date={clockTime}/>
+            <ClockDate date={clockDate}/>
         </>
     );
 }
