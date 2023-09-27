@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 function App() {
@@ -10,25 +10,26 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
- const [color, setColor] = useState('#000')
 
 
-    const handleColor = () => {
-        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-        setColor(randomColor)
-    }
+const [color, setColor] = useState(true)
+
+    useEffect(()=> {
+        const timer = setTimeout(()=> {
+            setColor(!color)
+        },5000)
+        return () => clearTimeout(timer)
+    }, [color])
 
     return (
         <>
-        <div
-            onMouseEnter={handleColor}
-            style={
-            {
-                width: '200px',
-                height: '200px',
-                backgroundColor: color
-            }
-        }></div>
+       <div style={
+           {
+               width: '200px',
+               height: '200px',
+               backgroundColor: color ? 'green' : 'red'
+           }
+       }></div>
 
         </>
     );
