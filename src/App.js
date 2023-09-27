@@ -4,36 +4,32 @@ import React, {useState} from "react";
 
 function App() {
 
-    const [text, setText] = useState("W")
-    const [number, setNumber] = useState(0)
+
     const data = 123
     const arr2 = ["Ala", "Puszek", "Zosia", "Marcin", "Kamil"]
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
+ const [color, setColor] = useState('#000')
 
 
-    const handlePlus = () => {
-        const state = 'itaj!'.split('')
-
-        setText(prevState => prevState +  state[number])
-        setNumber(prevState => prevState + 1)
+    const handleColor = () => {
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        setColor(randomColor)
     }
-    const handleMinus = () => {
-
-
-        setText(prevState => prevState.slice(0,number) )
-        setNumber(prevState => prevState - 1)
-    }
-
 
     return (
         <>
-            <button onClick={handleMinus}>-</button>
-            <div>
-                {text}
-            </div>
-            <button onClick={handlePlus}>+</button>
+        <div
+            onMouseEnter={handleColor}
+            style={
+            {
+                width: '200px',
+                height: '200px',
+                backgroundColor: color
+            }
+        }></div>
+
         </>
     );
 }
