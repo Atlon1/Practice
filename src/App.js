@@ -22,11 +22,17 @@ function App() {
                     break
                 case 2:
                     setNumber(3)
-                    setColor('orange')
                     break
                 case 3:
-                    setNumber(1)
+                    setNumber(4)
                     setColor('green')
+                    break
+                case 4:
+                    setNumber(5)
+                    setColor('orange')
+                case 5:
+                    setNumber(5)
+                    setColor('orange')
                     break
                 default:
                     setNumber(1)
@@ -43,7 +49,7 @@ function App() {
                     width: '100px',
                     height: '100px',
                     borderRadius: '50%',
-                    backgroundColor: number === 2 ? color : 'grey'
+                    backgroundColor: number === 2 ? color : number === 3 ? 'red' : 'grey'
                 }
             }></div>
             <div style={
@@ -51,7 +57,7 @@ function App() {
                     width: '100px',
                     height: '100px',
                     borderRadius: '50%',
-                    backgroundColor: number === 3 ? color : 'grey'
+                    backgroundColor: number === 5 ? color : number === 3 ? 'orange' : 'grey'
                 }
             }></div>
             <div style={
@@ -59,7 +65,7 @@ function App() {
                     width: '100px',
                     height: '100px',
                     borderRadius: '50%',
-                    backgroundColor: number === 1 ? color : 'grey'
+                    backgroundColor: number === 4 ? color : 'grey'
                 }
             }></div>
         </>
