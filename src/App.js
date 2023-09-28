@@ -30,12 +30,13 @@ function App() {
                 case 4:
                     setNumber(5)
                     setColor('orange')
+                    break
                 case 5:
-                    setNumber(5)
-                    setColor('orange')
+                    setNumber(2)
+                    setColor('red')
                     break
                 default:
-                    setNumber(1)
+                    setNumber(6)
                     setColor('grey')
             }
         },3000)
