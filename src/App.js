@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import ClockTime from "./ClockTime";
-import ClockDate from "./ClockDate";
+
 
 function App() {
 
@@ -11,33 +10,58 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
+    const [color, setColor] = useState('Gray')
+    const [number, setNumber] = useState(1)
 
-    const clockTime = new Date().toLocaleTimeString()
-    const [clockTime1, setClockTime1] = useState(clockTime)
-
-    useEffect(()=> {
-        const interval =setInterval(()=> {
-            setClockTime1(clockTime)
-        },1000)
-
-
-    },[clockTime1])
-
-    const clockDate = new Date().toLocaleDateString()
-    const [clockTime2, setClockTime2] = useState(clockTime)
-
-    useEffect(()=> {
-        const interval =setInterval(()=> {
-            setClockTime2(clockDate)
-        },1000)
-
-
-    },[clockTime2])
+    useEffect(()=>{
+        const interval = setInterval(()=> {
+            switch (number){
+                case 1:
+                    setNumber(2)
+                    setColor('red')
+                    break
+                case 2:
+                    setNumber(3)
+                    setColor('orange')
+                    break
+                case 3:
+                    setNumber(1)
+                    setColor('green')
+                    break
+                default:
+                    setNumber(1)
+                    setColor('grey')
+            }
+        },3000)
+        return () => clearInterval(interval)
+    },[number])
 
     return (
         <>
-            <ClockTime date={clockTime}/>
-            <ClockDate date={clockDate}/>
+            <div style={
+                {
+                    width: '100px',
+                    height: '100px',
+                    borderRadius: '50%',
+                    backgroundColor: number === 2 ? color : 'grey'
+                }
+            }></div>
+            <div style={
+                {
+                    width: '100px',
+                    height: '100px',
+                    borderRadius: '50%',
+                    backgroundColor: number === 3 ? color : 'grey'
+                }
+            }></div>
+            <div style={
+                {
+                    width: '100px',
+                    height: '100px',
+                    borderRadius: '50%',
+                    backgroundColor: number === 1 ? color : 'grey'
+                }
+            }></div>
         </>
     );
 }
