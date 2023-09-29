@@ -11,32 +11,25 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-    const [box, setBox] = useState(arr2)
+    const [box, setBox] = useState(1)
+    const [count, setCount] = useState(1)
 
-const parzy = () => {
-        const filtered = arr2.filter((elem)=> elem % 2 !== 1)
-        setBox(filtered)
-}
-const nieparzy = () => {
-        const filtered = arr2.filter((elem)=> elem % 2 === 1)
-        setBox(filtered)
-}
+    useEffect(() => {
+        document.title = `Clicked ${count}`
+    }, [count]);
 
-
-
+    const handleChange = () => {
+        setCount(prevState => prevState + 1)
+        setBox(count * 1.2)
+    }
 
     return (
         <>
-            <button onClick={parzy}>Parzyste</button>
-            <button onClick={nieparzy}>NieParzyste</button>
-            <ul>
-                {box.map((ele)=> {
-                    return (
-                        <li>{ele}</li>
-                    )
-                })}
-            </ul>
-
+            <p
+                onClick={handleChange}
+                style={{
+                fontSize: count + "rem"
+            }}>Kliknięto mnie juz: {count} razy</p>
         </>
     );
 }
