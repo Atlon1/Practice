@@ -12,54 +12,14 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-const [time, setTime] = useState(0)
-const [stop, setStop] = useState(false)
-    const [lap, setLap] = useState([])
+const [text, setText] = useState(false)
 
-
-    useEffect(() => {
-        const interval = setInterval(()=> {
-
-            setTime(stop ? time : prevState => prevState + 1)
-
-        }, 1000)
-        return () => clearInterval(interval)
-
-    }, [stop, time]);
-
-
-    const handleLap = () => {
-        setLap(() => [...lap, time])
-    }
-
-    const handleStop = () => {
-        setStop(true)
-    }
-    const handleStart = () => {
-        setStop(false)
-    }
-    const handleReset = () => {
-        setTime(0)
-    }
-
-
-
-
+const handleClick = () => {
+        setText(!text)
+}
     return (
         <>
-            <h1>Time: {time}s</h1>
-            <button onClick={handleLap}>Lap</button>
-            <button onClick={handleStop}>Stop</button>
-            <button onClick={handleReset}>Reset</button>
-            <button onClick={handleStart}>Start</button>
-            <h2>Laps:</h2>
-            <ul>
-                {lap.map((elem, index)=> {
-                    return (
-                        <li key={index}>{elem}</li>
-                    )
-                })}
-            </ul>
+            <h1 onClick={handleClick}>{text ? "tak" : 'nie'}</h1>
         </>
     );
 }
