@@ -2,6 +2,7 @@ import './App.css';
 import React, {useEffect, useState} from "react";
 
 
+
 function App() {
 
 
@@ -11,27 +12,54 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-const [user, setUser] = useState({
-    name: 'lol',
-    surname: 'lolek'
-})
+const [time, setTime] = useState(0)
+const [stop, setStop] = useState(false)
+    const [lap, setLap] = useState([])
+
 
     useEffect(() => {
         const interval = setInterval(()=> {
-            setUser(prevState => {
-                return {
-                    ...prevState,
-                    name: 'Maciej'
-                }
-            })
-        }, 2000)
+
+            setTime(stop ? time : prevState => prevState + 1)
+
+        }, 1000)
         return () => clearInterval(interval)
-    }, []);
+
+    }, [stop, time]);
+
+
+    const handleLap = () => {
+        setLap(() => [...lap, time])
+    }
+
+    const handleStop = () => {
+        setStop(true)
+    }
+    const handleStart = () => {
+        setStop(false)
+    }
+    const handleReset = () => {
+        setTime(0)
+    }
+
+
 
 
     return (
         <>
-            <p>{user.name} {user.surname}</p>
+            <h1>Time: {time}s</h1>
+            <button onClick={handleLap}>Lap</button>
+            <button onClick={handleStop}>Stop</button>
+            <button onClick={handleReset}>Reset</button>
+            <button onClick={handleStart}>Start</button>
+            <h2>Laps:</h2>
+            <ul>
+                {lap.map((elem, index)=> {
+                    return (
+                        <li key={index}>{elem}</li>
+                    )
+                })}
+            </ul>
         </>
     );
 }
