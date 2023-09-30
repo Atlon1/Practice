@@ -11,25 +11,27 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-    const [box, setBox] = useState(1)
-    const [count, setCount] = useState(1)
+const [user, setUser] = useState({
+    name: 'lol',
+    surname: 'lolek'
+})
 
     useEffect(() => {
-        document.title = `Clicked ${count}`
-    }, [count]);
+        const interval = setInterval(()=> {
+            setUser(prevState => {
+                return {
+                    ...prevState,
+                    name: 'Maciej'
+                }
+            })
+        }, 2000)
+        return () => clearInterval(interval)
+    }, []);
 
-    const handleChange = () => {
-        setCount(prevState => prevState + 1)
-        setBox(count * 1.2)
-    }
 
     return (
         <>
-            <p
-                onClick={handleChange}
-                style={{
-                fontSize: count + "rem"
-            }}>Kliknięto mnie juz: {count} razy</p>
+            <p>{user.name} {user.surname}</p>
         </>
     );
 }
