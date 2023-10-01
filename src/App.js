@@ -1,5 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
+import NumberInfo from "./NumberInfo";
 
 
 
@@ -12,23 +13,13 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-    const [randomNumber, setRandomNumber] = useState(0)
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const randomNumber = Math.ceil(Math.random()* 5)
-            setRandomNumber(randomNumber)
-        }, 1000)
-        return () => {
-            clearInterval(interval)
-        }
-    }, []);
 
 
 
     return (
         <>
-            {randomNumber >= 3 ? 'Większa lub równa 3' : 'Mniejsza od 3' }
+        <NumberInfo data = {[1,2,5,7,10,16]}/>
         </>
     );
 }
