@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import NumberInfo from "./NumberInfo";
+import SecretStuff from "./SecretStuff";
+
 
 
 
@@ -19,7 +20,7 @@ function App() {
 
     return (
         <>
-        <NumberInfo data = {[1,2,5,7,10,16]}/>
+            <SecretStuff password = '123' correctPass = '1233' secret = 'secret'/>
         </>
     );
 }
