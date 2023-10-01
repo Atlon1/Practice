@@ -12,14 +12,23 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-const [text, setText] = useState(false)
+    const [randomNumber, setRandomNumber] = useState(0)
 
-const handleClick = () => {
-        setText(!text)
-}
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const randomNumber = Math.ceil(Math.random()* 5)
+            setRandomNumber(randomNumber)
+        }, 1000)
+        return () => {
+            clearInterval(interval)
+        }
+    }, []);
+
+
+
     return (
         <>
-            <h1 onClick={handleClick}>{text ? "tak" : 'nie'}</h1>
+            {randomNumber >= 3 ? 'Większa lub równa 3' : 'Mniejsza od 3' }
         </>
     );
 }
