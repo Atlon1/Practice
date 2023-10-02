@@ -13,36 +13,22 @@ function App() {
     // const arr5 = true
 
 
-    const [time, setTime] = useState(2000)
-    const [time2, setTime2] = useState(time)
     const [disabled, setDisabled] = useState(false)
-    const [count, setCount] = useState(0)
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (time <= 0) {
-                setDisabled(true)
-                setTime(0)
-            } else {
-                setTime(time => time - 50)
-            }
-        }, 50)
-        return () => clearInterval(interval)
-    }, [time,count]);
-
-    const handleClike = () => {
-        setCount(count + 1)
-        setTime2(time2 - 50)
-        setTime(time2)
-
+    const handleClick = () => {
+        setDisabled(!disabled)
     }
+
 
     return (
         <>
-            <button onClick={handleClike} disabled={disabled}>Click me!</button>
-            <h1>{count}</h1>
-            <div>
-                <h2>{time}</h2>
+            <div style={{
+                width: 100,
+                height: 100,
+                backgroundColor: disabled ? 'yellow' : 'white',
+                border: '1px solid black',
+            }}>
+                <button onClick={handleClick}>{disabled ? 'Enabled' : 'Disabled'}</button>
             </div>
         </>
     );
