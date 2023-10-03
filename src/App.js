@@ -13,27 +13,18 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-   const [list, setList] = useState([]);
+   const [count, setCount] = useState(0)
 
-    const items = ['MacBook Pro', 'Dell X5500', 'Asus NT6000']
-
-    const handleBuy = (title) => {
-        setList([...list, title]);
+    const handleClike = () => {
+        setCount(count + 1)
     }
 
 
     return (
         <>
-        <div>
-            {items.map((item, idnex) => (
-                <ButtonClick key={idnex} title={item} onDone={ handleBuy } />
-            ))}
-            <ul>
-                {list.map((item) => (
-                    <li>{item}</li>
-                ))}
-            </ul>
-        </div>
+            <h1>{count}</h1>
+            <ButtonClick onDone={handleClike}/>
+
         </>
     );
 }
