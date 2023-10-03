@@ -12,19 +12,28 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
+    const items = ['MacBook Pro', 'Dell X5500', 'Asus NT6000'];
 
-   const [count, setCount] = useState(0)
+    const [list, setList] = useState([])
 
-    const handleClike = () => {
-        setCount(count + 1)
+    const handleClick = (title) => {
+        setList([...list, title])
     }
-
 
     return (
         <>
-            <h1>{count}</h1>
-            <ButtonClick onDone={handleClike}/>
-
+            {items.map((item, index) => {
+                return (
+                   <ButtonClick key={index} title={item} onBuy={handleClick}/>
+                )
+            })}
+            <ul>
+                {list.map((item, index) => {
+                    return (
+                        <li key={index}>{item}</li>
+                    )
+                })}
+            </ul>
         </>
     );
 }

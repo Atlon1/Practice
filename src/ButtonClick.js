@@ -1,20 +1,19 @@
 import React from 'react';
 
 
-const ButtonClick = ({onDone}) => {
+const ButtonClick = ({title, onBuy}) => {
 
-const hadleClikCount = () => {
-    if(typeof onDone === "function"){
-        onDone()
+    const handleClickButton = () => {
+        if (typeof onBuy === 'function') {
+            onBuy(title);
+        }
     }
-}
-
-
 
     return (
         <div>
-            <button onClick={hadleClikCount}>Count</button>
-            <button onClick={hadleClikCount}>Count</button>
+            <h1>{title}</h1>
+            <button onClick={handleClickButton}>Buy</button>
+
         </div>
     );
 };
