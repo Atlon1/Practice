@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import ButtonClick from "./ButtonClick";
-
+import ButtonClick from "./Examples/ButtonClick";
 
 
 function App() {
@@ -12,28 +11,16 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
-    const items = ['MacBook Pro', 'Dell X5500', 'Asus NT6000'];
+    const [name, setName] = useState('Maciej')
 
-    const [list, setList] = useState([])
 
-    const handleClick = (title) => {
-        setList([...list, title])
-    }
 
     return (
         <>
-            {items.map((item, index) => {
-                return (
-                   <ButtonClick key={index} title={item} onBuy={handleClick}/>
-                )
-            })}
-            <ul>
-                {list.map((item, index) => {
-                    return (
-                        <li key={index}>{item}</li>
-                    )
-                })}
-            </ul>
+            <h1>{name}</h1>
+            <form>
+                <input type='text' onChange={(e) => setName(e.target.value)}/>
+            </form>
         </>
     );
 }
