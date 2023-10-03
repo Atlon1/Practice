@@ -12,18 +12,27 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
-const [count, setCount] = useState(0)
 
-    const handleClick = () => {
-        setCount(count + 1)
+   const [list, setList] = useState([]);
+
+    const items = ['MacBook Pro', 'Dell X5500', 'Asus NT6000']
+
+    const handleBuy = (title) => {
+        setList([...list, title]);
     }
+
 
     return (
         <>
         <div>
-            <h1>{count}</h1>
-           <ButtonClick onDone={handleClick}/>
-           <ButtonClick onDone={handleClick}/>
+            {items.map((item, idnex) => (
+                <ButtonClick key={idnex} title={item} onDone={ handleBuy } />
+            ))}
+            <ul>
+                {list.map((item) => (
+                    <li>{item}</li>
+                ))}
+            </ul>
         </div>
         </>
     );

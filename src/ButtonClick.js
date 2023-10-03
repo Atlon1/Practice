@@ -1,14 +1,21 @@
 import React from 'react';
 
-const ButtonClick = (oneDone) => {
+
+const ButtonClick = ({title, onDone}) => {
 
 
+const handleBuyClick = () => {
+    if (typeof onDone === 'function') {
+        onDone(title);
+    }
+}
 
 
     return (
-
-        // eslint-disable-next-line no-unused-expressions
-        <button onClick={oneDone.onDone}>Count</button>
+        <div>
+            <h1>{title}</h1>
+            <button onClick={handleBuyClick}>kup</button>
+        </div>
     );
 };
 
