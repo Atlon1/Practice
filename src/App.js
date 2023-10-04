@@ -11,36 +11,24 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
-    const [form, setForm] = useState([])
+const [text, setText] = useState('lolol')
 
-    const handleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]:[ e.target.value]
-        })
-    }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(form)
-    }
+
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <label>Login</label>
-                <input type="text"
-                       name='login'
-                       minLength={2}
-                       onChange={handleChange}/>
+            <form>
+                <select
 
-                <label>Hasło</label>
-                <input type="password"
-                       name='password'
-                       minLength={4}
-                       onChange={handleChange}/>
-                <input type='submit' value='Wyślij'/>
+                onChange={(e) => setText(e.target.value)}>
+                    <option value={text}>{text}</option>
+                    <option value="lolol213123">lolol213123</option>
+                    <option value="Mariusz Pudzianowski">Mariusz Pudzianowski</option>
+                </select>
             </form>
+            <p>{text}</p>
+            <span>{text.length}</span>
         </>
     );
 }
