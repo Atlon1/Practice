@@ -11,24 +11,21 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
-const [text, setText] = useState('lolol')
+
+    const [counter, setCounter] = useState(0)
+    const [counter2, setCounter2] = useState(0)
 
 
 
 
     return (
         <>
-            <form>
-                <select
+        <form>
+            <input onChange={(e) => setCounter(e.target.value)} type='text'/>
+            <input onChange={(e) => setCounter2(e.target.value)} type='text'/>
+        </form>
+            <h1>{ isNaN(counter) || isNaN(counter2) ? 'Podaj dwie liczby' : parseInt(counter) + parseInt(counter2)}</h1>
 
-                onChange={(e) => setText(e.target.value)}>
-                    <option value={text}>{text}</option>
-                    <option value="lolol213123">lolol213123</option>
-                    <option value="Mariusz Pudzianowski">Mariusz Pudzianowski</option>
-                </select>
-            </form>
-            <p>{text}</p>
-            <span>{text.length}</span>
         </>
     );
 }
