@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import ButtonClick from "./Examples/ButtonClick";
+import SelectOrType from "./SelectOrType";
 
 
 function App() {
@@ -12,20 +12,12 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-    const [counter, setCounter] = useState(0)
-    const [counter2, setCounter2] = useState(0)
-
-
+   const items =["BMW", "Jaguar", "Porsche"]
 
 
     return (
         <>
-        <form>
-            <input onChange={(e) => setCounter(e.target.value)} type='text'/>
-            <input onChange={(e) => setCounter2(e.target.value)} type='text'/>
-        </form>
-            <h1>{ isNaN(counter) || isNaN(counter2) ? 'Podaj dwie liczby' : parseInt(counter) + parseInt(counter2)}</h1>
-
+            <SelectOrType items={items}/>
         </>
     );
 }
