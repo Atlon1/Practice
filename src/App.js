@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-
+import AdultStuff from "./AdultStuff";
 
 
 function App() {
@@ -12,30 +12,17 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-    const [text, setText] = useState('')
-    const [err, setErr] = useState(null)
 
-    const validate = (text1) => {
-        if (text1.length < 11 && text.length > 0) {
-            return setErr("Za mało znaków")
-        }  else if (typeof text1 === "number") {
-            return  setErr("Musi być liczbą")
-        } else {
-            return setErr(null)
-        }
-    }
+    const [number, setNumber] = useState(0)
 
-    useEffect(() => {
-        validate(text)
-    }, [text]);
 
     return (
         <>
             <form>
                 <input
-                    onChange={(e) => setText(e.target.value)} type='text'/>
-                <div></div>
-                {err === null ? <input type='submit'/> : "Nie Poprawny numer pesel"}
+                    onChange={(e) => setNumber(e.target.value)}
+                    type='number'/>
+                    <AdultStuff number={number}/>
             </form>
         </>
 
