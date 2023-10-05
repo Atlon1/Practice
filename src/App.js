@@ -2,6 +2,7 @@ import './App.css';
 import React, {useEffect, useState} from "react";
 
 
+
 function App() {
 
 
@@ -10,67 +11,34 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
-    const [toDo, setToDo] = useState([{
-        id: 1,
-        text: 'Rzecz do zrobienia',
-        isDone: false
-    }])
 
     const [text, setText] = useState('')
+    const [err, setErr] = useState(null)
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setToDo([...toDo, {
-            id: toDo.length + 1,
-            text: text,
-            isDone: false
-        }])
-        setText('')
+    const validate = (text1) => {
+        if (text1.length < 11 && text.length > 0) {
+            return setErr("Za mało znaków")
+        }  else if (typeof text1 === "number") {
+            return  setErr("Musi być liczbą")
+        } else {
+            return setErr(null)
+        }
     }
 
-    console.log(toDo, text)
+    useEffect(() => {
+        validate(text)
+    }, [text]);
 
-    const handleChange = (id) => {
-        setToDo(toDo.map(item => {
-            if (item.id === id) {
-                return {
-                    ...item,
-                    isDone: !item.isDone
-                }
-            } else {
-                return item
-            }
-        }))
-    }
-
-    const deleteItem = (id) => {
-        const newToDo = toDo.filter(item => item.id !== id)
-        setToDo(newToDo)
-    }
     return (
         <>
             <form>
-                <h2>Twoja lista Zadań</h2>
-                <input value={text} onChange={(e) => setText(e.target.value)} type='text'
-                       placeholder='np. Zrobić zakupy'/>
-                <button onClick={handleSubmit}>Dodaj</button>
+                <input
+                    onChange={(e) => setText(e.target.value)} type='text'/>
+                <div></div>
+                {err === null ? <input type='submit'/> : "Nie Poprawny numer pesel"}
             </form>
-
-            <ul>
-                {toDo.map((item) => {
-                    return (
-                        <div key={item.id}>
-                            <li style={
-                                {
-                                    backgroundColor: item.isDone ? 'green' : 'white',
-                                }
-                            } onClick={() => handleChange(item.id)}>{item.text}</li>
-                            <button onClick={deleteItem.bind(this, item.id)}>usun</button>
-                        </div>
-                    )
-                })}
-            </ul>
         </>
+
     );
 }
 
