@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import AdultStuff from "./AdultStuff";
+
 
 
 function App() {
@@ -12,8 +12,7 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-
-    const [number, setNumber] = useState(0)
+const [number, setNumber] = useState(0);
 
 
     return (
@@ -22,8 +21,18 @@ function App() {
                 <input
                     onChange={(e) => setNumber(e.target.value)}
                     type='number'/>
-                    <AdultStuff number={number}/>
             </form>
+            <ul>
+                {Array.from({ length: number }, (_, i ) => (
+                    <li style={
+                        {
+                            backgroundColor: 'red',
+                            height: '50px',
+                            width: `${i * 50}px`,
+                        }
+                    } key={i}></li>
+                ))}
+            </ul>
         </>
 
     );
