@@ -5,8 +5,8 @@ import React, {useEffect, useState} from "react";
 function App() {
 
 
-    const data = 'Mężczyzna'
-    const arr2 = [54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40]
+    // const data = 'Mężczyzna'
+    // const arr2 = [54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40]
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
@@ -20,12 +20,7 @@ function App() {
         city: ''
     })
 
-    const handleOnChange = (e) => {
-        e.preventDefault()
-       setData1({...data1, [e.target.name]: e.target.value})
-    }
-
-    const[dataErr, setDataErr] = useState({
+    const [dataErr, setDataErr] = useState({
         nameErr: null,
         emailErr: null,
         passwordErr: null,
@@ -35,33 +30,41 @@ function App() {
         cityErr: null
     })
 
+    const [aggree, setAggree] = useState(<div/>)
 
-   const validateName = (data) => {
-       if (data.length < 5 ){
-           return 'Nazwisko jest za krótkie'
-       }
-       return null
-   }
-
-   const validateEmail = (data) => {
-       if (data.length < 5 ){
-           return 'E-mail jest za krótkie'
-       }
-       return null
-   }
-
-   const handleSubmit = (e) => {
-       e.preventDefault()
-       const nameErr = validateName(data1.name)
-
-      if (nameErr !== null){
-         setDataErr({...nameErr, nameErr})
-      } else  {
-          setDataErr({...nameErr, nameErr: null})
-      }
-   }
+    const handleOnChange = (e) => {
+        e.preventDefault()
+        setData1({...data1, [e.target.name]: e.target.value})
+    }
 
 
+    const validateName = (data) => {
+        if (data.name.length < 5) {
+            return 'Imię jest za krótkie'
+        }
+        return null
+    }
+
+    const validateEmail = (data) => {
+        if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)) {
+            return 'Adres e-mail jest nieprawidłowy'
+        }
+        return null
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const nameError = validateName(data1.name)
+        const emailError = validateEmail(data1.email)
+
+        if (nameError || emailError) {
+            setDataErr({...dataErr, nameErr: nameError})
+            setDataErr({...dataErr, emailErr: emailError})
+        } else {
+            setDataErr({...dataErr, nameErr: null})
+            setDataErr({...dataErr, emailErr: null})
+        }
+    }
 
 
     return (
@@ -73,12 +76,14 @@ function App() {
                     onChange={handleOnChange}
                     name='name'
                     type='text'/>
-                <div>{dataErr.nameErr}</div>
+                <div style={{color: 'red'}}>{dataErr.nameErr}</div>
                 <div>E-mail</div>
+
                 <input
                     onChange={handleOnChange}
                     name='email'
                     type='email'/>
+                <div style={{color: 'red'}}>{dataErr.emailErr}</div>
                 <div>Hasło</div>
                 <input
                     onChange={handleOnChange}
