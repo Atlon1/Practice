@@ -30,6 +30,7 @@ function App() {
         cityErr: null
     })
 
+
     const [aggree, setAggree] = useState(<div/>)
 
     const handleOnChange = (e) => {
@@ -39,7 +40,9 @@ function App() {
 
 
     const validateName = (data) => {
-        if (data.name.length < 5) {
+        if (!data.name) {
+            return 'Podaj imię'
+        } else if (data.name.length < 3) {
             return 'Imię jest za krótkie'
         }
         return null
@@ -52,17 +55,21 @@ function App() {
         return null
     }
 
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        const nameError = validateName(data1.name)
-        const emailError = validateEmail(data1.email)
+        const nameError = validateName(data1)
+        const emailError = validateEmail(data1)
 
-        if (nameError || emailError) {
-            setDataErr({...dataErr, nameErr: nameError})
-            setDataErr({...dataErr, emailErr: emailError})
+        if (nameError || emailError !== null) {
+           setDataErr({...dataErr,
+               nameErr: nameError,
+               emailErr: emailError})
         } else {
-            setDataErr({...dataErr, nameErr: null})
-            setDataErr({...dataErr, emailErr: null})
+            setDataErr({...dataErr,
+                nameErr: null,
+                emailErr: null})
         }
     }
 
