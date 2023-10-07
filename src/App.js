@@ -1,5 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
+import getNames from "./names";
 
 
 function App() {
@@ -10,60 +11,20 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
-    const [data, setData] = useState({
-        name: '',
-    })
 
-    const handleOnChange = (e) => {
-        setData({
-            ...data,
-            [e.target.name]: e.target.value
+    useEffect(()=>{
+        getNames().then((names)=>{
+            setNames(names)
         })
-    }
+    },[])
 
-    const [dataErr, setDataErr] = useState({
-        nameErr: null
-    })
-    const [agree, setAgree] = useState(false)
-
-    const validate = (data) => {
-        if (data.name < 2) {
-            return "Podaj imię i nazwisko"
-        }
-        return null
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const err = validate(data)
-        if (err !== null) {
-            setDataErr({
-                ...dataErr,
-                nameErr: err
-            })
-        } else {
-            setDataErr({
-                ...dataErr,
-                nameErr: null
-            })
-            setAgree(!agree)
-        }
-    }
-
+    const [names, setNames] = useState([]);
 
     return (
         <>
-            <form>
-
-                <div>Imię i nazwisko</div>
-                <input
-                    onChange={handleOnChange}
-                    name='name'
-                    type='text'/>
-                <div style={{color: 'red'}}>{dataErr.nameErr}</div>
-            </form>
-            <button onClick={handleSubmit}>Submit</button>
-            {agree ? 'Tak' : 'Nie'}
+            {names.map((name) => {
+                return <div key={name}>{name}</div>;
+            })}
         </>
 
 
