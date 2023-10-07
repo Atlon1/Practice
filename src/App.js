@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import getNames from "./names";
-
+import BookInfo from "./BookInfo";
 
 function App() {
 
@@ -12,19 +11,12 @@ function App() {
     // const arr4 = 8
     // const arr5 = true
 
-    useEffect(()=>{
-        getNames().then((names)=>{
-            setNames(names)
-        })
-    },[])
 
-    const [names, setNames] = useState([]);
 
     return (
         <>
-            {names.map((name) => {
-                return <div key={name}>{name}</div>;
-            })}
+            <BookInfo isbn="0747532699" />
+
         </>
 
 
