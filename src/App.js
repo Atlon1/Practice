@@ -11,13 +11,13 @@ function App() {
     const [fetching, setFetching] = useState([]);
 
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon')
-            .then(res => res.json())
+        fetch('https://fer-api.coderslab.pl/v1/holidays?key=e92601251-c0a2-4s63-v73f-54041195480f&country=PL')
+            .then((res) => res.json())
             .then(data => {
-                setFetching(data.results)
+                setFetching(data.holidays);
             })
             .catch(err => {
-                console.log(err)
+                console.log(err);
             })
     }, []);
 
@@ -27,7 +27,11 @@ function App() {
     return (
         <>
             <ul>
-                {fetching.map(item => <li key={item.name}>{item.name}</li>)}
+                {fetching.map((elem)=> {
+                    return (
+                        <li key={elem.id}>{elem.name}</li>
+                    )
+                })}
             </ul>
 
         </>
