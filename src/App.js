@@ -1,7 +1,5 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import BookInfo from "./BookInfo";
-
 function App() {
 
 
@@ -10,12 +8,27 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
+    const [fetching, setFetching] = useState([]);
+
+    useEffect(() => {
+        fetch('https://pokeapi.co/api/v2/pokemon')
+            .then(res => res.json())
+            .then(data => {
+                setFetching(data.results)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, []);
 
 
+    console.log(fetching)
 
     return (
         <>
-            <BookInfo isbn="0747532699" />
+            <ul>
+                {fetching.map(item => <li key={item.name}>{item.name}</li>)}
+            </ul>
 
         </>
 
