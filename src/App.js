@@ -8,28 +8,38 @@ function App() {
     // const arr3 = 'Arizona'
     // const arr4 = 8
     // const arr5 = true
-    const [fetching, setFetching] = useState([]);
-
-    useEffect(() => {
-        fetch('https://fer-api.coderslab.pl/v1/holidays?key=e92601251-c0a2-4s63-v73f-54041195480f&country=PL')
-            .then((res) => res.json())
-            .then(data => {
-                setFetching(data.holidays);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }, []);
 
 
-    console.log(fetching)
+   const [data, setData] = useState([]);
+
+   const api = 'http://localhost:3000';
+
+   useEffect(() => {
+       fetch(`${api}/cars`)
+           .then(res => res.json())
+           .then(data => {
+               setData(data)
+           })
+           .catch(err => {
+               console.log(err)
+           })
+   },[])
+    console.log(data)
+
+    const handleRemove = (e) => {
+
+    }
 
     return (
         <>
             <ul>
-                {fetching.map((elem)=> {
+                {data.map((elem, id)=> {
                     return (
-                        <li key={elem.id}>{elem.name}</li>
+                        <div key={id}>
+                            <li>{elem.name}</li>
+                            <button onClick={handleRemove(elem.id)}>Sprzedany</button>
+                        </div>
+
                     )
                 })}
             </ul>
