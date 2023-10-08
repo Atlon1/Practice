@@ -26,8 +26,9 @@ function App() {
    },[])
     console.log(data)
 
-    const handleRemove = (e) => {
-
+    const handleRemove = (id) => {
+        const newData = data.filter(elem => elem.id !== id)
+        setData(newData)
     }
 
     return (
@@ -35,9 +36,9 @@ function App() {
             <ul>
                 {data.map((elem, id)=> {
                     return (
-                        <div key={id}>
+                        <div key={elem.id}>
                             <li>{elem.name}</li>
-                            <button onClick={handleRemove(elem.id)}>Sprzedany</button>
+                            <button onClick={handleRemove.bind(this, elem.id)} >Sprzedany</button>
                         </div>
 
                     )
