@@ -1,6 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 const AddCar = ({data, setData}) => {
+
+    const ref1 = useRef(null)
+    const ref2 = useRef(null)
+    const ref3 = useRef(null)
+    const ref4 = useRef(null)
 
 
     const [formData, setFormData] = useState({
@@ -12,6 +17,13 @@ const AddCar = ({data, setData}) => {
             hp: ''
         }
     });
+
+    useEffect(() => {
+        setFormData({
+            id: data[data.length - 1].id + 1,
+
+        })
+    },[data])
 
 
     const handleOnChange = (e) => {
@@ -36,6 +48,10 @@ const AddCar = ({data, setData}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setData([...data, formData]);
+        ref1.current.value = ''
+        ref2.current.value = ''
+        ref3.current.value = ''
+        ref4.current.value = ''
 
     }
 
@@ -43,18 +59,35 @@ const AddCar = ({data, setData}) => {
 
     return (
         <div>
-            <form
-            onChange={handleOnChange}
-            >
-                <input type="text" name="name" placeholder="Name"/>
-                <input type="text" name="brand" placeholder="Brand"/>
+            <form  onChange={handleOnChange}>
+                <input
+                    ref={ref1}
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                />
+                <input
+                    ref={ref2}
+                    type="text"
+                    name="brand"
+                    placeholder="Brand"
+
+                />
             </form>
-            <form
-            onChange={handleOnChange2}
-            >
+            <form onChange={handleOnChange2}>
                 <div>Silnik</div>
-                <input type='text'name='type' placeholder='Type'/>
-                <input type='text' name='hp' placeholder='HP'/>
+                <input
+                    ref={ref3}
+                    type='text'
+                    name='type'
+                    placeholder='Type'
+
+                />
+                <input
+                    ref={ref4}
+                    type='text'
+                    name='hp'
+                    placeholder='HP' />
             </form>
             <button onClick={handleSubmit}>Submit</button>
         </div>
