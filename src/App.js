@@ -1,5 +1,7 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
+import AddCar from "./AddCar";
+
 function App() {
 
 
@@ -10,20 +12,22 @@ function App() {
     // const arr5 = true
 
 
-   const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-   const api = 'http://localhost:3000';
+    const api = 'http://localhost:3000';
 
-   useEffect(() => {
-       fetch(`${api}/cars`)
-           .then(res => res.json())
-           .then(data => {
-               setData(data)
-           })
-           .catch(err => {
-               console.log(err)
-           })
-   },[])
+    useEffect(() => {
+        fetch(`${api}/cars`)
+            .then(res => res.json())
+            .then(data => {
+                setData(data)
+                setLoading(true)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [])
     console.log(data)
 
     const handleRemove = (id) => {
@@ -34,16 +38,19 @@ function App() {
     return (
         <>
             <ul>
-                {data.map((elem, id)=> {
+                {data.map((elem, id) => {
                     return (
                         <div key={elem.id}>
                             <li>{elem.name}</li>
-                            <button onClick={handleRemove.bind(this, elem.id)} >Sprzedany</button>
+                            <button onClick={handleRemove.bind(this, elem.id)}>Sprzedany</button>
                         </div>
 
                     )
                 })}
+
             </ul>
+
+            {loading ?   <div><AddCar data={data} setData={setData} /></div> : <div>Loading...</div> }
 
         </>
 
