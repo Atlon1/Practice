@@ -32,7 +32,14 @@ function App() {
     return (
         <>
 
-            {loading ? data.map((data) => <Cars key={data.id} data={data} remove={handleRemove} setData={setData}></Cars>) : <div>Loading...</div>}
+            {loading ? data.map((data) => <Cars
+                key={data.id}
+                data={data}
+                remove={handleRemove}
+                setData={setData}
+                api={api}></Cars>
+
+                ) : <div>Loading...</div>}
 
         </>
 
