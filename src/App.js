@@ -1,45 +1,56 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import Cars from "./Cars";
+import AddUser from "./AddUser";
+
 
 function App() {
 
-
+    const api = 'http://localhost:3000'
 
     const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-
-    const api = 'http://localhost:3000';
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
-        fetch(`${api}/cars`)
+        fetch(`${api}/users`)
             .then(res => res.json())
             .then(data => {
                 setData(data)
-                setLoading(true)
+                setIsOpen(true)
             })
             .catch(err => {
                 console.log(err)
             })
-    }, [])
+    }, []);
 
 
-    const handleRemove = (id) => {
-        const newData = data.filter(elem => elem.id !== id)
-        setData(newData)
-    }
+    console.log(data)
+
 
     return (
         <>
+            {isOpen ? <AddUser data={data} setData={setData}/> : <div>Loading...</div>}
 
-            {loading ? data.map((data) => <Cars
-                key={data.id}
-                data={data}
-                remove={handleRemove}
-                setData={setData}
-                api={api}></Cars>
+            <div>Użytkownicy</div>
+            {data.map((elem)=>{
+                return (
+                    <div
+                        style={
+                        {
+                            display: 'flex',
+                            flexDirection: 'column',
+                            backgroundColor: 'yellow'
+                        }
+                        }
+                        key={elem.id}>
+                        <h1>{elem.name}</h1>
+                        <h2>{elem.surname}</h2>
+                        <div>{elem.city}</div>
+                        <div>{elem.gender}</div>
+                        <div>{elem.age}</div>
+                    </div>
+                )
+            })}
 
-                ) : <div>Loading...</div>}
 
         </>
 
