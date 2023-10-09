@@ -1,15 +1,9 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import AddCar from "./AddCar";
+import Cars from "./Cars";
 
 function App() {
 
-
-    // const data = 'Mężczyzna'
-    // const arr2 = [54, 76, 24, 63, 4, 54, 82, 36, 13, 80, 10, 69, 4, 23, 40]
-    // const arr3 = 'Arizona'
-    // const arr4 = 8
-    // const arr5 = true
 
 
     const [data, setData] = useState([]);
@@ -28,7 +22,7 @@ function App() {
                 console.log(err)
             })
     }, [])
-    console.log(data)
+
 
     const handleRemove = (id) => {
         const newData = data.filter(elem => elem.id !== id)
@@ -37,20 +31,8 @@ function App() {
 
     return (
         <>
-            <ul>
-                {data.map((elem, id) => {
-                    return (
-                        <div key={elem.id}>
-                            <li>{elem.name}</li>
-                            <button onClick={handleRemove.bind(this, elem.id)}>Sprzedany</button>
-                        </div>
 
-                    )
-                })}
-
-            </ul>
-
-            {loading ?   <div><AddCar data={data} setData={setData} /></div> : <div>Loading...</div> }
+            {loading ? data.map((data) => <Cars key={data.id} data={data} remove={handleRemove} setData={setData}></Cars>) : <div>Loading...</div>}
 
         </>
 
