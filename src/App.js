@@ -1,56 +1,58 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import AddUser from "./AddUser";
-
 
 function App() {
 
-    const api = 'http://localhost:3000'
-
-    const [data, setData] = useState([]);
-    const [isOpen, setIsOpen] = useState(false)
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
-        fetch(`${api}/users`)
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
-                setIsOpen(true)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, []);
-
-
-    console.log(data)
-
+        if (progress !== 100) {
+            const interval = setInterval(() => {
+                setProgress(progress => progress + 1);
+            }, 100);
+            return () => {
+                clearInterval(interval);
+            }
+        }
+    }, [progress]);
 
     return (
         <>
-            {isOpen ? <AddUser data={data} setData={setData}/> : <div>Loading...</div>}
+            {progress === 100 ? <h1>Completed</h1> : (<>
+                <div style={
+                    {
+                        width: '500px',
+                        height: '50px',
+                        border: '1px solid black',
+                        display: 'flex',
+                        alignItems: 'center',
 
-            <div>Użytkownicy</div>
-            {data.map((elem)=>{
-                return (
-                    <div
-                        style={
+                    }
+                }>
+
+                    <div style={
                         {
+                            width: `${progress}%`,
+                            height: '100%',
+                            backgroundColor: 'green',
                             display: 'flex',
-                            flexDirection: 'column',
-                            backgroundColor: 'yellow'
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            position: 'relative',
                         }
-                        }
-                        key={elem.id}>
-                        <h1>{elem.name}</h1>
-                        <h2>{elem.surname}</h2>
-                        <div>{elem.city}</div>
-                        <div>{elem.gender}</div>
-                        <div>{elem.age}</div>
+                    }>
+                        <div style={{
+                            position: 'absolute',
+                            left: '42.5%',
+                            top: '',
+                        }}>
+                            {progress}%
+                        </div>
                     </div>
-                )
-            })}
 
+
+                </div>
+            </>) }
 
         </>
 
