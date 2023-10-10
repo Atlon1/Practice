@@ -50,6 +50,15 @@ const AddUser = ({data, setData}) => {
         return null
     }
 
+    const surnameValidation = (form) => {
+        if (!form.surname) {
+            return 'Pole nie może być puste'
+        } else if (form.surname < 2) {
+            return 'Nazwisko jest za krótkie'
+        }
+        return null
+    }
+
     const ageValidation = (form) => {
         if (!form.age) {
             return 'Pole nie może być puste'
@@ -59,21 +68,49 @@ const AddUser = ({data, setData}) => {
         return null
     }
 
+    const cityValidation = (form) => {
+        if (!form.city) {
+            return 'Pole nie może być puste'
+        } else if (form.city < 2) {
+            return 'Miasto jest za krótkie'
+        }
+        return null
+    }
+
+    const GanderValidation = (form) => {
+        if (!form.gender){
+            return 'Pole nie może być puste'
+        }
+        return null
+    }
+
     const handleSave = (e) => {
         e.preventDefault(e)
         const nameErr = nameValidation(form)
         const ageErr = ageValidation(form)
+        const surnameErr = surnameValidation(form)
+        const cityErr = cityValidation(form)
+        const GanderErr = GanderValidation(form)
 
-        if (nameErr || ageErr !== null) {
+        if (nameErr || ageErr || surnameErr || cityErr || GanderErr !== null) {
             setErr({
                 ...err,
                 name: nameErr,
-                age: ageErr
+                age: ageErr,
+                surname: surnameErr,
+                city: cityErr,
+                gender: GanderErr
             })
 
         } else {
-            setErr({...err, name: null})
-            setErr({...err, age: null})
+            setErr({...err,
+                name: null,
+                age: null,
+                surname: null,
+                city: null,
+                gender: null
+
+            })
             setData([...data, form])
             setForm({
                 age: '',
