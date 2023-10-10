@@ -1,58 +1,32 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
+import Products from "./Products";
+import Cart from "./Cart";
 
 function App() {
 
-    const [progress, setProgress] = useState(0);
+    const [data, setData] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
-        if (progress !== 100) {
-            const interval = setInterval(() => {
-                setProgress(progress => progress + 1);
-            }, 100);
-            return () => {
-                clearInterval(interval);
-            }
-        }
-    }, [progress]);
+        fetch('https://fer-api.coderslab.pl/v1/exam5/products')
+            .then(res => res.json())
+            .then(data => {
+                setData(data)
+                setIsLoaded(true);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, []);
+
+
 
     return (
         <>
-            {progress === 100 ? <h1>Completed</h1> : (<>
-                <div style={
-                    {
-                        width: '500px',
-                        height: '50px',
-                        border: '1px solid black',
-                        display: 'flex',
-                        alignItems: 'center',
-
-                    }
-                }>
-
-                    <div style={
-                        {
-                            width: `${progress}%`,
-                            height: '100%',
-                            backgroundColor: 'green',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            position: 'relative',
-                        }
-                    }>
-                        <div style={{
-                            position: 'absolute',
-                            left: '42.5%',
-                            top: '',
-                        }}>
-                            {progress}%
-                        </div>
-                    </div>
-
-
-                </div>
-            </>) }
+            {isLoaded ? <Products data={data} setCart={setCart} cart={cart}/> : <h2>Ładowanie...</h2>}
+            <Cart cart={cart}/>
 
         </>
 
