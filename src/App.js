@@ -14,7 +14,6 @@ function App() {
         email: null,
         message: null
     })
-    const [post, setPost] = useState([])
 
 
     const [fetchErr, setFetchErr] = useState(null)
@@ -75,6 +74,8 @@ function App() {
                 message: null
             })
 
+
+
             fetch('https://fer-api.coderslab.pl/v1/exam5/contact', {
                 method: 'POST',
                 headers: {
@@ -82,22 +83,27 @@ function App() {
                 },
                 body: JSON.stringify(name)
             })
-                .then(res => {
-                    res.json()
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error("Błąd sieci!");
+                    }
                 })
                 .then(data => {
-                    setPost(data.id)
+                    if (data.status === "success") {
+                        setErr("succes")
+                    }
                 })
-
                 .catch(err => {
-                    setFetchErr(err)
-                })
+                    console.log(err);
+                });
         }
 
 
     }
 
-
+ console.log(name)
     return (
         <div style={
             {
