@@ -3,22 +3,15 @@ import React, {useEffect, useState} from "react";
 
 function App() {
 
-    const number = 30
+    const number = 3.1415926535
+    const precision = 4
 
-    const res = (num) => {
-        if (num % 5 === 0 && num % 3 === 0) {
-            return 'BangBoom'
-        } else if (num % 3 === 0) {
-            return 'Bang'
-        } else if (num % 5 === 0) {
-            return 'Boom'
-        } else {
-            return "Miss"
-        }
+    const res = (num, b) => {
+       return Math.round(num * Math.pow(10, b)) / Math.pow(10, b)
     }
 
 
-    console.log(res(number))
+    console.log(res(number, precision))
 
     return (
         <>
