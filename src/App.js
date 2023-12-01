@@ -24,20 +24,30 @@ function App() {
 
     const res = (res) => {
         const status = {
-            online : [],
-            offline : [],
-            away : []
+            online: [],
+            offline: [],
+            away: []
         }
 
-        const sortedStatus = res.map((elem) => {
-            if (elem.lastActivity <= 10){
+        const sortedStatus = res.forEach((elem) => {
+            if (elem.lastActivity <= 10) {
                 status.online.push(elem.username)
-            } else if (elem.lastActivity <= 22){
+            } else if (elem.lastActivity <= 22) {
                 status.offline.push(elem.username)
             } else {
                 status.away.push(elem.username)
             }
         })
+        if (status['online'].length == 0) {
+            delete status['online'];
+        }
+        if (status['offline'].length == 0) {
+            delete status['offline'];
+        }
+        if (status['away'].length == 0) {
+            delete status['away'];
+        }
+
         return status
 
 
