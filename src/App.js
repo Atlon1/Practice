@@ -3,12 +3,44 @@ import React, {useEffect, useState} from "react";
 
 function App() {
 
-    const a = 34
+    const a = [{
+        username: 'David',
+        status: 'online',
+        lastActivity: 10
+    }, {
+        username: 'Lucy',
+        status: 'offline',
+        lastActivity: 22
+    }, {
+        username: 'Bob',
+        status: 'online',
+        lastActivity: 104
+    }, {
+        username: 'reo',
+        status: 'online',
+        lastActivity: 104
+    }]
     const b = 4
 
     const res = (res) => {
-        const result =  res % 3 === 0 && res % 4 === 0 ? "Coffee" : res % 3 === 0 ? "Java" : "mocha_missing!"
-        return result === "mocha_missing!" ? result : res % 2 === 0 ? `${result}Script` : result
+        const status = {
+            online : [],
+            offline : [],
+            away : []
+        }
+
+        const sortedStatus = res.map((elem) => {
+            if (elem.lastActivity <= 10){
+                status.online.push(elem.username)
+            } else if (elem.lastActivity <= 22){
+                status.offline.push(elem.username)
+            } else {
+                status.away.push(elem.username)
+            }
+        })
+        return status
+
+
     }
 
 
