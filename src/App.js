@@ -3,15 +3,16 @@ import React, {useEffect, useState} from "react";
 
 function App() {
 
-    const number = 3.1415926535
-    const precision = 4
+    const a = 34
+    const b = 4
 
-    const res = (num, b) => {
-       return Math.round(num * Math.pow(10, b)) / Math.pow(10, b)
+    const res = (res) => {
+        const result =  res % 3 === 0 && res % 4 === 0 ? "Coffee" : res % 3 === 0 ? "Java" : "mocha_missing!"
+        return result === "mocha_missing!" ? result : res % 2 === 0 ? `${result}Script` : result
     }
 
 
-    console.log(res(number, precision))
+    console.log(res(a))
 
     return (
         <>
